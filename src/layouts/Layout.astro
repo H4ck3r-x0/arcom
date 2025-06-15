@@ -1,5 +1,6 @@
 ---
 import Navigation from '../components/Navigation.astro';
+import Logo from '../components/Logo.astro';
 import { getLangFromUrl, getDirection, getLanguageClass } from '../utils/i18n';
 import '../styles/global.css';
 
@@ -133,18 +134,14 @@ const isRTL = lang === 'ar';
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <!-- Company Info -->
           <div class="lg:col-span-2">
-            <div class="flex items-center space-x-3 rtl:space-x-reverse mb-6">
-              <div class="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center shadow-lg">
-                <span class="text-white font-bold text-xl">A</span>
-              </div>
-              <div>
-                <div class="text-2xl font-bold">
-                  {lang === 'ar' ? 'أركوم' : 'ARCOM'}
-                </div>
-                <div class="text-gray-400 text-sm">
-                  {lang === 'ar' ? 'شريكك في التميز' : 'Your Excellence Partner'}
-                </div>
-              </div>
+            <div class="mb-6">
+              <Logo 
+                variant="white"
+                size="md"
+                showText={true}
+                lang={lang}
+                className="mb-6"
+              />
             </div>
             <p class="text-gray-300 mb-6 max-w-md">
               {lang === 'ar' 

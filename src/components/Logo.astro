@@ -1,0 +1,82 @@
+---
+export interface Props {
+  variant?: 'green' | 'white';
+  size?: 'sm' | 'md' | 'lg' | 'xl';
+  className?: string;
+  showText?: boolean;
+  lang?: 'ar' | 'en';
+}
+
+const { 
+  variant = 'green', 
+  size = 'md', 
+  className = '', 
+  showText = true,
+  lang = 'ar'
+} = Astro.props;
+
+// Size mappings
+const sizeClasses = {
+  sm: 'w-8 h-8',
+  md: 'w-12 h-12', 
+  lg: 'w-16 h-16',
+  xl: 'w-36 h-20'
+};
+
+// Text size mappings
+const textSizeClasses = {
+  sm: 'text-lg',
+  md: 'text-2xl',
+  lg: 'text-3xl', 
+  xl: 'text-4xl'
+};
+
+const logoSrc = `/logos/${variant}.png`;
+const altText = lang === 'ar' ? 'شعار أركوم' : 'ARCOM Logo';
+const brandText = lang === 'ar' ? 'أركوم' : 'ARCOM';
+const tagline = lang === 'ar' ? 'شريكك في التميز' : 'Your Excellence Partner';
+---
+
+<div class={`flex items-center gap-3 rtl:gap-3 ${className}`}>
+  <!-- Logo Image -->
+  <img 
+    src={logoSrc}
+    alt={altText}
+    class={`${sizeClasses[size]} object-contain`}
+    loading="eager"
+  />
+  
+  <!-- Brand Text -->
+  {showText && (
+    <div class="flex flex-col">
+      <span class={`${textSizeClasses[size]} font-bold bg-gradient-to-r from-[#047C46] to-[#07D580] bg-clip-text text-transparent`}>
+        {brandText}
+      </span>
+      <span class="text-xs text-neutral-500 font-medium -mt-1 leading-tight">
+        {tagline}
+      </span>
+    </div>
+  )}
+</div>
+
+<style>
+  /* Ensure proper background clip support */
+  .bg-clip-text {
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+  
+  /* RTL Support */
+  [dir="rtl"] .rtl\:gap-3 {
+    gap: 0.75rem;
+  }
+  
+  /* Enhanced hover effects */
+  .hover\:scale-105:hover {
+    transform: scale(1.05);
+  }
+  
+  .hover\:shadow-xl:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  }
+</style> 

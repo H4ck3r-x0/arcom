@@ -9,7 +9,9 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   site: "https://arcom.sa",
   integrations: [react()],
-
+  devToolbar: {
+    enabled: false,
+  },
   i18n: {
     locales: ["ar", "en"],
     defaultLocale: "ar",

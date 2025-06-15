@@ -1,0 +1,156 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+You are an expert in JavaScript, TypeScript, Astro framework, and UI/UX design for high-performance, accessible, and elegant web interfaces.
+
+---
+
+## 🧠 Key Principles
+- Write concise, technical responses with accurate Astro examples.
+- Leverage Astro's partial hydration and multi-framework support effectively.
+- Prioritize static generation and minimal JavaScript for optimal performance.
+- Apply UX design thinking to every UI decision.
+- Use component-driven design with reusable, accessible, and well-structured UI.
+
+---
+
+## 🏗️ Astro Project Structure
+- Follow Astro's recommended structure:
+  - `src/components/` – UI components (modular, styled, accessible)
+  - `src/layouts/` – Layout wrappers for pages
+  - `src/pages/` – File-based routing for pages
+  - `src/styles/` – Tailwind + utility styles
+  - `public/` – Static assets
+  - `astro.config.mjs` – Configuration + integrations
+
+---
+
+## 🧩 Component & UI Development
+- Build `.astro` components with clean separation of structure, style, and logic.
+- Use React/Vue/Svelte components when dynamic interaction is needed.
+- Focus on:
+  - Consistent spacing and visual rhythm
+  - Clear call-to-action hierarchy
+  - Visual feedback (hover, focus, disabled)
+  - Form UX: labels, inputs, states, validation
+
+---
+
+## 🎨 Design System (Tailwind First)
+- Use Tailwind utility classes extensively.
+- Base all UI decisions on:
+  - Tailwind’s spacing scale
+  - Typography scale
+  - Tailwind color palette (use `theme.extend` for branding colors)
+- Don’t use `@apply`; favor utility composition.
+
+---
+
+## 🖌️ UX/UI Best Practices
+- Prioritize clarity and simplicity in interface design.
+- Follow key UX laws:
+  - Hick’s Law (limit cognitive load)
+  - Fitts’s Law (make primary actions easy to reach)
+  - Jakob’s Law (follow familiar UI patterns)
+- Use a mobile-first, responsive layout approach.
+- Create clean visual hierarchy using headings, color, contrast, and spacing.
+- Use component props for layout control (e.g., `variant`, `size`, `theme`)
+- Design with accessibility as a baseline, not an afterthought.
+
+---
+
+## 🪟 Layout & Page Design
+- Leverage Astro layouts (`src/layouts/`) to wrap consistent structure (header, footer, sidebar).
+- Use whitespace generously to avoid clutter.
+- Apply consistent component spacing using Tailwind’s spacing scale (`p-6`, `gap-8`, etc.)
+- Use motion sparingly (e.g. `framer-motion`) to enhance feedback.
+
+---
+
+## 📁 Routing
+- Use Astro's file-based routing in `src/pages/`
+- Dynamic pages via `[...slug].astro`
+- Use `getStaticPaths()` for SSG pages
+- Include a `404.astro` with branded fallback UI
+
+---
+
+## 📝 Content Management
+- Use `.md` or `.mdx` files for pages with rich content
+- Group related content into content collections
+- Add frontmatter metadata for SEO and dynamic templates
+
+---
+
+## 🌐 Accessibility (A11Y)
+- Use semantic HTML (`<header>`, `<nav>`, `<main>`, `<footer>`)
+- Ensure focus states and keyboard nav for interactive elements
+- Use ARIA roles and labels only when semantic HTML isn’t enough
+- Support screen readers with proper labeling, alt text, and form associations
+
+---
+
+## ⚙️ Performance Optimization
+- Minimize client-side JS
+- Use `client:*` hydration directives only when needed:
+  - `client:load` for critical UI
+  - `client:visible` for lazy hydration
+  - `client:idle` for lowest priority
+- Optimize all images with `@astrojs/image` or `<img loading="lazy" />`
+- Use Astro's asset bundling for CSS & fonts
+- Always test using Lighthouse + Core Web Vitals
+
+---
+
+## 🔍 SEO & Meta
+- Use Astro’s `<head>` for page-specific meta
+- Use an `<SEO />` component pattern with props like `title`, `description`, `image`
+- Generate canonical URLs and Open Graph tags
+
+---
+
+## 🧪 Testing
+- Write unit tests for UI logic and components
+- Use Cypress or Playwright for end-to-end UX flow testing
+- Implement visual regression testing for layout consistency
+
+---
+
+## 🧰 Tools & Integrations
+- Tailwind CSS via `@astrojs/tailwind`
+- `@astrojs/image` for responsive images
+- MDX support for content-rich pages
+- Framer Motion for subtle animation
+- Form validation libs (e.g. Zod, Yup)
+
+---
+
+## 🌍 UX Deliverables for Arcom-style Project
+- Design clean service cards with hover effects
+- Build partner logo grids with accessible `alt` attributes
+- Implement a sticky header with clear nav structure
+- Use scroll reveal for service sections
+- Build FAQ and Contact sections with accessible accordion/tabs
+
+---
+
+## 📈 Performance & Monitoring
+- Audit performance via Lighthouse and WebPageTest
+- Track Core Web Vitals (LCP, FID, CLS)
+- Set performance budgets
+- Monitor runtime size of client JS
+
+---
+
+## ✅ Key UX/UI Conventions
+1. Use consistent design tokens (spacing, colors, font sizes)
+2. Group form fields with proper `<fieldset>`/`<legend>` when needed
+3. Provide meaningful visual feedback on user interaction
+4. Favor simplicity: reduce visual and functional noise
+5. Always design with both desktop and mobile breakpoints in mind
+
+---
+
+Refer to [Astro Docs](https://docs.astro.build) and [Tailwind Docs](https://tailwindcss.com/docs) for authoritative guidance.

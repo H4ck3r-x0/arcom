@@ -16,6 +16,17 @@
   --color-cool-blue: #71aff5;
   --color-off-white: #f5fcf8;
 
+  /* Font Weights */
+  --font-weight-thin: 100;
+  --font-weight-extralight: 200;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+
   /* Primary Brand Palette */
   --color-primary-50: #ecfdf5;
   --color-primary-100: #d1fae5;
@@ -150,6 +161,122 @@
     outline: 2px solid var(--color-primary-500);
     outline-offset: 2px;
     border-radius: var(--radius-sm);
+  }
+}
+
+@layer utilities {
+  /* Font Weight Utilities */
+  .font-thin {
+    font-weight: var(--font-weight-thin);
+  }
+  .font-extralight {
+    font-weight: var(--font-weight-extralight);
+  }
+  .font-light {
+    font-weight: var(--font-weight-light);
+  }
+  .font-normal {
+    font-weight: var(--font-weight-normal);
+  }
+  .font-medium {
+    font-weight: var(--font-weight-medium);
+  }
+  .font-semibold {
+    font-weight: var(--font-weight-semibold);
+  }
+  .font-bold {
+    font-weight: var(--font-weight-bold);
+  }
+  .font-extrabold {
+    font-weight: var(--font-weight-extrabold);
+  }
+  .font-black {
+    font-weight: var(--font-weight-black);
+  }
+
+  /* Text Transform Utilities */
+  .uppercase {
+    text-transform: uppercase;
+  }
+  .lowercase {
+    text-transform: lowercase;
+  }
+  .capitalize {
+    text-transform: capitalize;
+  }
+  .normal-case {
+    text-transform: none;
+  }
+
+  /* Text Decoration Utilities */
+  .underline {
+    text-decoration-line: underline;
+  }
+  .overline {
+    text-decoration-line: overline;
+  }
+  .line-through {
+    text-decoration-line: line-through;
+  }
+  .no-underline {
+    text-decoration-line: none;
+  }
+
+  /* Background Clip Utilities */
+  .bg-clip-border {
+    background-clip: border-box;
+  }
+  .bg-clip-padding {
+    background-clip: padding-box;
+  }
+  .bg-clip-content {
+    background-clip: content-box;
+  }
+  .bg-clip-text {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  /* Text Color Utilities */
+  .text-transparent {
+    color: transparent;
+  }
+
+  /* Transform Utilities */
+  .scale-105 {
+    transform: scale(1.05);
+  }
+  .scale-110 {
+    transform: scale(1.1);
+  }
+  .-translate-x-1 {
+    transform: translateX(-0.25rem);
+  }
+  .translate-x-1 {
+    transform: translateX(0.25rem);
+  }
+
+  /* Line Clamp Utilities */
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
   }
 }
 
