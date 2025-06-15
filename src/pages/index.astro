@@ -1,16 +1,57 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
+import Counter from '../components/Counter.tsx';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Astro + React App" description="Welcome to our Astro project with React integration">
+  <h1>🚀 Welcome to Astro + React!</h1>
+  
+  <p>
+    This is a modern web application built with <strong>Astro</strong> and <strong>React</strong>. 
+    Astro provides static site generation with the ability to add interactive React components 
+    where needed using partial hydration.
+  </p>
+
+  <h2>🎯 Features</h2>
+  <ul>
+    <li>⚡ <strong>Astro</strong> - Modern static site generator</li>
+    <li>⚛️ <strong>React</strong> - Interactive UI components</li>
+    <li>🔥 <strong>TypeScript</strong> - Type safety out of the box</li>
+    <li>📦 <strong>Git</strong> - Version control ready</li>
+    <li>🎨 <strong>Scoped Styling</strong> - Component-based CSS</li>
+  </ul>
+
+  <h2>🧮 Interactive React Component</h2>
+  <p>Below is a React component that's hydrated on the client side:</p>
+  
+  <!-- The client:load directive ensures this component is interactive -->
+  <Counter client:load initialCount={5} />
+
+  <div style="background: #f7fafc; padding: 1.5rem; border-radius: 8px; margin-top: 2rem;">
+    <h3>🛠️ Next Steps</h3>
+    <ol>
+      <li>Run <code>npm run dev</code> to start the development server</li>
+      <li>Edit files in <code>src/</code> to customize your app</li>
+      <li>Add more React components in <code>src/components/</code></li>
+      <li>Create new pages in <code>src/pages/</code></li>
+    </ol>
+  </div>
+</Layout>
+
+<style>
+  code {
+    background: #e2e8f0;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+  }
+
+  ul, ol {
+    line-height: 1.8;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+</style>

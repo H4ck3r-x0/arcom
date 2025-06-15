@@ -1,0 +1,59 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "A modern web application built with Astro and React" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
+
+<style is:global>
+  html {
+    font-family: system-ui, sans-serif;
+    line-height: 1.6;
+  }
+  
+  body {
+    margin: 0;
+    padding: 2rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+  }
+  
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  h1, h2, h3 {
+    color: #2d3748;
+    margin-top: 0;
+  }
+
+  button:hover {
+    opacity: 0.8;
+    transform: translateY(-1px);
+    transition: all 0.2s ease;
+  }
+</style> 
