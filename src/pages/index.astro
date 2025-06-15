@@ -1,41 +1,416 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Counter from '../components/Counter.tsx';
+import type { Language } from '../utils/i18n';
+import { getTranslation, DEFAULT_LANGUAGE } from '../utils/i18n';
+
+const currentLang: Language = DEFAULT_LANGUAGE;
 ---
 
-<Layout title="Astro + React App" description="Welcome to our Astro project with React integration">
-  <h1>🚀 Welcome to Astro + React!</h1>
-  
-  <p>
-    This is a modern web application built with <strong>Astro</strong> and <strong>React</strong>. 
-    Astro provides static site generation with the ability to add interactive React components 
-    where needed using partial hydration.
-  </p>
+<Layout 
+  title={getTranslation('heroTitle', currentLang)} 
+  description={getTranslation('heroSubtitle', currentLang)}
+  lang={currentLang}
+>
+  <!-- Hero Section -->
+  <section class="relative min-h-screen flex items-center justify-center bg-gradient-primary hero-pattern overflow-hidden">
+    <!-- Background Elements -->
+    <div class="absolute inset-0">
+      <div class="absolute top-20 left-10 w-32 h-32 bg-white/10 rounded-full blur-xl animate-float"></div>
+      <div class="absolute bottom-20 right-10 w-48 h-48 bg-white/5 rounded-full blur-2xl animate-float" style="animation-delay: -2s;"></div>
+      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-pulse-slow"></div>
+    </div>
 
-  <h2>🎯 Features</h2>
-  <ul>
-    <li>⚡ <strong>Astro</strong> - Modern static site generator</li>
-    <li>⚛️ <strong>React</strong> - Interactive UI components</li>
-    <li>🔥 <strong>TypeScript</strong> - Type safety out of the box</li>
-    <li>📦 <strong>Git</strong> - Version control ready</li>
-    <li>🎨 <strong>Scoped Styling</strong> - Component-based CSS</li>
-  </ul>
+    <div class="container-custom relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <!-- Content -->
+        <div class="text-center lg:text-right space-y-8">
+          <div class="space-y-4">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight animate-slide-up">
+              {getTranslation('heroTitle', currentLang)}
+            </h1>
+            <p class="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto lg:mx-0 animate-slide-up" style="animation-delay: 0.2s;">
+              {getTranslation('heroSubtitle', currentLang)}
+            </p>
+          </div>
+          
+          <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-slide-up" style="animation-delay: 0.4s;">
+            <a href="#services" class="btn-secondary hover:scale-105 transform transition-all duration-300">
+              {getTranslation('getStarted', currentLang)}
+            </a>
+            <a href="#about" class="btn-outline text-white border-white hover:bg-white hover:text-primary-600">
+              {getTranslation('learnMore', currentLang)}
+            </a>
+          </div>
 
-  <h2>🧮 Interactive React Component</h2>
-  <p>Below is a React component that's hydrated on the client side:</p>
-  
-  <!-- The client:load directive ensures this component is interactive -->
-  <Counter client:load initialCount={5} />
+          <!-- Stats -->
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-6 pt-8 animate-slide-up" style="animation-delay: 0.6s;">
+            <div class="text-center">
+              <div class="text-3xl md:text-4xl font-bold text-white mb-2">٢٠١٥</div>
+              <div class="text-white/80 text-sm">{currentLang === 'ar' ? 'تأسست عام' : 'Founded'}</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl md:text-4xl font-bold text-white mb-2">+١٥٠٠</div>
+              <div class="text-white/80 text-sm">{getTranslation('serviceCount', currentLang)}</div>
+            </div>
+            <div class="text-center col-span-2 md:col-span-1">
+              <div class="text-3xl md:text-4xl font-bold text-white mb-2">٨</div>
+              <div class="text-white/80 text-sm">{currentLang === 'ar' ? 'خدمات رئيسية' : 'Main Services'}</div>
+            </div>
+          </div>
+        </div>
 
-  <div style="background: #f7fafc; padding: 1.5rem; border-radius: 8px; margin-top: 2rem;">
-    <h3>🛠️ Next Steps</h3>
-    <ol>
-      <li>Run <code>npm run dev</code> to start the development server</li>
-      <li>Edit files in <code>src/</code> to customize your app</li>
-      <li>Add more React components in <code>src/components/</code></li>
-      <li>Create new pages in <code>src/pages/</code></li>
-    </ol>
-  </div>
+        <!-- Visual Element -->
+        <div class="relative">
+          <div class="relative z-10 bg-white/10 backdrop-blur-lg rounded-3xl p-8 shadow-2xl animate-float">
+            <div class="space-y-6">
+              <div class="flex items-center space-x-4 rtl:space-x-reverse">
+                <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-lg">
+                  <span class="text-2xl font-bold text-primary-600">A</span>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-white">أركوم</h3>
+                  <p class="text-white/80">{currentLang === 'ar' ? 'شريكك في التميز' : 'Your Excellence Partner'}</p>
+                </div>
+              </div>
+              
+              <div class="grid grid-cols-2 gap-4">
+                <div class="bg-white/20 rounded-xl p-4 text-center">
+                  <div class="text-2xl font-bold text-white mb-1">٢٤/٧</div>
+                  <div class="text-white/80 text-sm">{currentLang === 'ar' ? 'دعم متواصل' : 'Support'}</div>
+                </div>
+                <div class="bg-white/20 rounded-xl p-4 text-center">
+                  <div class="text-2xl font-bold text-white mb-1">١٠٠٪</div>
+                  <div class="text-white/80 text-sm">{currentLang === 'ar' ? 'رضا العملاء' : 'Satisfaction'}</div>
+                </div>
+              </div>
+
+              <div class="text-center">
+                <p class="text-white/90 text-sm leading-relaxed">
+                  {currentLang === 'ar' 
+                    ? 'نقدم حلول مبتكرة لإدارة المرافق باستخدام أحدث التقنيات'
+                    : 'Delivering innovative facility management solutions with cutting-edge technology'
+                  }
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <div class="w-8 h-12 border-2 border-white/50 rounded-full flex justify-center">
+        <div class="w-1 h-3 bg-white/70 rounded-full mt-2 animate-pulse"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section-padding bg-white">
+    <div class="container-custom">
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          {currentLang === 'ar' ? 'من نحن' : 'About Us'}
+        </h2>
+        <div class="w-24 h-1 bg-primary-500 mx-auto mb-8"></div>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          {currentLang === 'ar' 
+            ? 'نحن الشركة العربية المعتمدة لإدارة المرافق، رائدة في تقديم الحلول المبتكرة والموثوقة في المملكة العربية السعودية'
+            : 'We are The Accredited Arabian Company for Facilities Management, pioneering innovative and reliable solutions in Saudi Arabia'
+          }
+        </p>
+      </div>
+
+      <!-- Vision, Mission, Values -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+        <!-- Vision -->
+        <div class="card text-center group hover:scale-105 transform transition-all duration-300">
+          <div class="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">{getTranslation('vision', currentLang)}</h3>
+          <p class="text-gray-600 leading-relaxed">
+            {getTranslation('visionText', currentLang)}
+          </p>
+        </div>
+
+        <!-- Mission -->
+        <div class="card text-center group hover:scale-105 transform transition-all duration-300">
+          <div class="w-16 h-16 bg-gradient-secondary rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">{getTranslation('mission', currentLang)}</h3>
+          <p class="text-gray-600 leading-relaxed">
+            {getTranslation('missionText', currentLang)}
+          </p>
+        </div>
+
+        <!-- Values -->
+        <div class="card text-center group hover:scale-105 transform transition-all duration-300">
+          <div class="w-16 h-16 bg-gradient-to-br from-lime-green to-aqua-mint rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">{getTranslation('values', currentLang)}</h3>
+          <div class="space-y-3 text-gray-600">
+            <div>• {getTranslation('credibility', currentLang)} - {getTranslation('credibilityDesc', currentLang)}</div>
+            <div>• {getTranslation('commitment', currentLang)} - {getTranslation('commitmentDesc', currentLang)}</div>
+            <div>• {getTranslation('innovation', currentLang)} - {getTranslation('innovationDesc', currentLang)}</div>
+            <div>• {getTranslation('sustainability', currentLang)} - {getTranslation('sustainabilityDesc', currentLang)}</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vision 2030 -->
+      <div class="bg-gradient-to-r from-primary-50 to-secondary-50 rounded-3xl p-8 md:p-12">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <div>
+            <h3 class="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-4">
+              <span class="text-4xl">🇸🇦</span>
+              {getTranslation('vision2030', currentLang)}
+            </h3>
+            <p class="text-lg text-gray-700 leading-relaxed mb-6">
+              {getTranslation('vision2030Text', currentLang)}
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <span class="px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-medium">
+                {currentLang === 'ar' ? 'حلول ذكية' : 'Smart Solutions'}
+              </span>
+              <span class="px-4 py-2 bg-secondary-100 text-secondary-700 rounded-full text-sm font-medium">
+                {currentLang === 'ar' ? 'شراكات استراتيجية' : 'Strategic Partnerships'}
+              </span>
+              <span class="px-4 py-2 bg-lime-green/10 text-deep-green rounded-full text-sm font-medium">
+                {currentLang === 'ar' ? 'تنمية مستدامة' : 'Sustainable Development'}
+              </span>
+            </div>
+          </div>
+          <div class="relative">
+            <div class="aspect-square bg-gradient-primary rounded-2xl flex items-center justify-center text-white text-6xl font-bold shadow-2xl">
+              ٢٠٣٠
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="section-padding bg-gray-50">
+    <div class="container-custom">
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          {getTranslation('servicesTitle', currentLang)}
+        </h2>
+        <div class="w-24 h-1 bg-primary-500 mx-auto mb-8"></div>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          {currentLang === 'ar' 
+            ? 'نقدم مجموعة شاملة من الخدمات المتخصصة في إدارة المرافق بأعلى معايير الجودة والكفاءة'
+            : 'We offer a comprehensive range of specialized facility management services with the highest standards of quality and efficiency'
+          }
+        </p>
+      </div>
+
+      <!-- Services Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {[
+          {
+            key: 'operationsMaintenance',
+            icon: '🔧',
+            color: 'from-primary-500 to-primary-600'
+          },
+          {
+            key: 'hospitalityEvents',
+            icon: '☕',
+            color: 'from-secondary-500 to-secondary-600'
+          },
+          {
+            key: 'housekeeping',
+            icon: '🧹',
+            color: 'from-lime-green to-aqua-mint'
+          },
+          {
+            key: 'airportServices',
+            icon: '✈️',
+            color: 'from-cool-blue to-sky-blue'
+          },
+          {
+            key: 'landscaping',
+            icon: '🌱',
+            color: 'from-primary-400 to-lime-green'
+          },
+          {
+            key: 'totalHomeCare',
+            icon: '🏠',
+            color: 'from-secondary-400 to-aqua-mint'
+          },
+          {
+            key: 'renovations',
+            icon: '🏗️',
+            color: 'from-primary-600 to-deep-green'
+          },
+          {
+            key: 'pestControl',
+            icon: '🦗',
+            color: 'from-cool-blue to-secondary-500'
+          }
+        ].map((service) => (
+          <div class="card group hover:scale-105 transform transition-all duration-300 hover:shadow-2xl">
+            <div class={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+              <span class="text-2xl">{service.icon}</span>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-3">
+              {getTranslation(service.key as keyof typeof import('../utils/i18n').translations, currentLang)}
+            </h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              {currentLang === 'ar' 
+                ? 'خدمات متميزة ومتكاملة تلبي جميع احتياجاتكم بأعلى معايير الجودة والمهنية.'
+                : 'Exceptional and comprehensive services that meet all your needs with the highest standards of quality and professionalism.'
+              }
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <!-- CTA -->
+      <div class="text-center mt-16">
+        <a href="#contact" class="btn-primary text-lg px-8 py-4">
+          {getTranslation('contactUs', currentLang)}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section-padding bg-white">
+    <div class="container-custom">
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          {getTranslation('contactUs', currentLang)}
+        </h2>
+        <div class="w-24 h-1 bg-primary-500 mx-auto mb-8"></div>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          {currentLang === 'ar' 
+            ? 'تواصل معنا اليوم للحصول على استشارة مجانية وخطة مخصصة لاحتياجاتك'
+            : 'Contact us today for a free consultation and a customized plan for your needs'
+          }
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <!-- Contact Info -->
+        <div class="space-y-8">
+          <div class="flex items-start space-x-4 rtl:space-x-reverse">
+            <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                {currentLang === 'ar' ? 'البريد الإلكتروني' : 'Email'}
+              </h3>
+              <p class="text-gray-600 ltr-content">info@arcom.sa</p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-4 rtl:space-x-reverse">
+            <div class="w-12 h-12 bg-secondary-100 rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-secondary-600" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                {currentLang === 'ar' ? 'الموقع' : 'Location'}
+              </h3>
+              <p class="text-gray-600">
+                {currentLang === 'ar' ? 'الرياض، المملكة العربية السعودية' : 'Riyadh, Saudi Arabia'}
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-4 rtl:space-x-reverse">
+            <div class="w-12 h-12 bg-lime-green/20 rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-deep-green" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M4.083 9h1.946c.089-1.546.383-2.97.837-4.118A6.004 6.004 0 004.083 9zM10 2a8 8 0 100 16 8 8 0 000-16zm0 2c-.076 0-.232.032-.465.262-.238.234-.497.623-.737 1.182-.389.907-.673 2.142-.766 3.556h3.936c-.093-1.414-.377-2.649-.766-3.556-.24-.559-.499-.948-.737-1.182C10.232 4.032 10.076 4 10 4zm3.971 5c-.089-1.546-.383-2.97-.837-4.118A6.004 6.004 0 0115.917 9h-1.946zm-2.003 2H8.032c.093 1.414.377 2.649.766 3.556.24.559.499.948.737 1.182.233.23.389.262.465.262.076 0 .232-.032.465-.262.238-.234.497-.623.737-1.182.389-.907.673-2.142.766-3.556zm1.166 4.118c.454-1.147.748-2.572.837-4.118h1.946a6.004 6.004 0 01-2.783 4.118zm-6.268 0C6.412 13.97 6.118 12.546 6.03 11H4.083a6.004 6.004 0 002.783 4.118z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                {currentLang === 'ar' ? 'الموقع الإلكتروني' : 'Website'}
+              </h3>
+              <p class="text-gray-600 ltr-content">www.arcom.sa</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="card">
+          <form class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">
+                  {currentLang === 'ar' ? 'الاسم' : 'Name'}
+                </label>
+                <input 
+                  type="text" 
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
+                  placeholder={currentLang === 'ar' ? 'أدخل اسمك' : 'Enter your name'}
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">
+                  {currentLang === 'ar' ? 'البريد الإلكتروني' : 'Email'}
+                </label>
+                <input 
+                  type="email" 
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
+                  placeholder={currentLang === 'ar' ? 'أدخل بريدك الإلكتروني' : 'Enter your email'}
+                />
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">
+                {currentLang === 'ar' ? 'الموضوع' : 'Subject'}
+              </label>
+              <input 
+                type="text" 
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
+                placeholder={currentLang === 'ar' ? 'موضوع الرسالة' : 'Message subject'}
+              />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">
+                {currentLang === 'ar' ? 'الرسالة' : 'Message'}
+              </label>
+              <textarea 
+                rows="5" 
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 resize-none"
+                placeholder={currentLang === 'ar' ? 'اكتب رسالتك هنا...' : 'Write your message here...'}
+              ></textarea>
+            </div>
+            <button 
+              type="submit" 
+              class="w-full btn-primary text-lg py-4"
+            >
+              {currentLang === 'ar' ? 'إرسال الرسالة' : 'Send Message'}
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>
 
 <style>
