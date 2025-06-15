@@ -1,0 +1,592 @@
+---
+import { useTranslations } from '../utils/i18n';
+
+export interface Props {
+  lang: 'ar' | 'en';
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<!-- REVOLUTIONARY FORTUNE 500 HERO SECTION -->
+<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+  <!-- CINEMATIC BACKGROUND SYSTEM -->
+  <div class="absolute inset-0">
+    <!-- Ultra-Premium Base Gradient - ARCOM Brand Colors -->
+    <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-[#047C46] to-black"></div>
+    
+    <!-- Advanced Mesh Gradient Network - ARCOM Colors -->
+    <div class="absolute inset-0 bg-gradient-to-tr from-[#047C46]/40 via-transparent to-[#71D9F5]/20"></div>
+    <div class="absolute inset-0 bg-gradient-to-bl from-[#71AFF5]/15 via-transparent to-[#07D580]/30"></div>
+    <div class="absolute inset-0 bg-radial-gradient from-[#07D580]/15 via-transparent to-[#047C46]/60"></div>
+    
+
+    
+    <!-- Authentic ARCOM Brand Pattern - Based on Brand Guidelines -->
+    <div class="absolute inset-0 opacity-8">
+      <svg class="w-full h-full" viewBox="0 0 1200 1000" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <!-- Authentic ARCOM Chevron Pattern - Organic Scatter -->
+          <pattern id="arcomAuthentic" x="0" y="0" width="180" height="180" patternUnits="userSpaceOnUse">
+            <!-- Row 1 - Mixed sizes and colors -->
+            <path d="M30 25 L40 15 L50 25 L40 35 Z" fill="#047C46" opacity="0.4" transform="rotate(0 40 25)"/>
+            <path d="M85 30 L95 20 L105 30 L95 40 Z" fill="#0A7C4A" opacity="0.45" transform="rotate(0 95 30)"/>
+            <path d="M140 20 L150 10 L160 20 L150 30 Z" fill="#ffffff" opacity="0.15" transform="rotate(0 150 20)"/>
+            
+            <!-- Row 2 - Varied positioning -->
+            <path d="M15 70 L25 60 L35 70 L25 80 Z" fill="#07D580" opacity="0.35" transform="rotate(0 25 70)"/>
+            <path d="M70 75 L82 63 L94 75 L82 87 Z" fill="#047C46" opacity="0.5" transform="rotate(0 82 75)"/>
+            <path d="M125 65 L135 55 L145 65 L135 75 Z" fill="#ffffff" opacity="0.2" transform="rotate(0 135 65)"/>
+            <path d="M165 80 L173 72 L181 80 L173 88 Z" fill="#0A8B52" opacity="0.3" transform="rotate(0 173 80)"/>
+            
+            <!-- Row 3 - More organic spread -->
+            <path d="M45 115 L55 105 L65 115 L55 125 Z" fill="#07D580" opacity="0.4" transform="rotate(0 55 115)"/>
+            <path d="M100 120 L110 110 L120 120 L110 130 Z" fill="#047C46" opacity="0.45" transform="rotate(0 110 120)"/>
+            <path d="M5 125 L13 117 L21 125 L13 133 Z" fill="#ffffff" opacity="0.25" transform="rotate(0 13 125)"/>
+            
+            <!-- Row 4 - Bottom scatter -->
+            <path d="M25 160 L35 150 L45 160 L35 170 Z" fill="#0A7C4A" opacity="0.4" transform="rotate(0 35 160)"/>
+            <path d="M80 155 L90 145 L100 155 L90 165 Z" fill="#ffffff" opacity="0.18" transform="rotate(0 90 155)"/>
+            <path d="M135 165 L145 155 L155 165 L145 175 Z" fill="#07D580" opacity="0.35" transform="rotate(0 145 165)"/>
+          </pattern>
+          
+          <!-- Subtle Background Chevrons -->
+          <pattern id="arcomSubtle" x="0" y="0" width="240" height="200" patternUnits="userSpaceOnUse">
+            <!-- Larger, more spread out chevrons -->
+            <path d="M60 50 L75 35 L90 50 L75 65 Z" fill="#047C46" opacity="0.15" transform="rotate(0 75 50)"/>
+            <path d="M180 40 L195 25 L210 40 L195 55 Z" fill="#ffffff" opacity="0.1" transform="rotate(0 195 40)"/>
+            <path d="M30 120 L45 105 L60 120 L45 135 Z" fill="#07D580" opacity="0.2" transform="rotate(0 45 120)"/>
+            <path d="M150 130 L165 115 L180 130 L165 145 Z" fill="#0A8B52" opacity="0.18" transform="rotate(0 165 130)"/>
+            <path d="M200 180 L212 168 L224 180 L212 192 Z" fill="#ffffff" opacity="0.12" transform="rotate(0 212 180)"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#arcomSubtle)"/>
+        <rect width="100%" height="100%" fill="url(#arcomAuthentic)"/>
+      </svg>
+    </div>
+    
+
+    
+    <!-- Cinematic Overlay System -->
+    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50"></div>
+    <div class="absolute inset-0 bg-radial-gradient from-transparent via-transparent to-black/80"></div>
+  </div>
+
+  <!-- PREMIUM CONTENT SYSTEM -->
+  <div class="relative z-10 container-custom text-center text-white" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
+    
+    <!-- Fortune 500 Brand Messaging - ARCOM Colors -->
+    <div class="mb-8 space-y-4">
+      <h1 class={`hero-title-enterprise motion-element ${lang === 'ar' ? 'font-arabic' : 'font-archivo'}`} data-motion="hero-title">
+        <span class={`block font-extrabold leading-tight mb-3 bg-gradient-to-r from-[#F5FCF8] via-[#71F5E6] to-[#71D9F5] bg-clip-text text-transparent motion-element ${lang === 'ar' ? 'text-3xl md:text-5xl lg:text-6xl' : 'text-4xl md:text-6xl lg:text-7xl'}`} data-motion="main-title">
+          {lang === 'ar' ? 'أركوم' : 'ARCOM'}
+        </span>
+        <span class={`block font-medium bg-gradient-to-r from-[#07D580] to-[#71D9F5] bg-clip-text text-transparent motion-element ${lang === 'ar' ? 'text-base md:text-lg lg:text-xl leading-relaxed' : 'text-lg md:text-xl lg:text-2xl'}`} data-motion="subtitle">
+          {lang === 'ar' ? 'الشركة العربية المعتمدة لإدارة المرافق' : 'The Accredited Arabian Company'}
+        </span>
+        <span class={`block font-normal text-[#F5FCF8]/90 motion-element ${lang === 'ar' ? 'text-sm md:text-base lg:text-lg' : 'text-sm md:text-base lg:text-lg'}`} data-motion="tagline">
+          {lang === 'ar' ? 'لإدارة المرافق' : 'for Facilities Management'}
+        </span>
+      </h1>
+      
+      <!-- Premium Divider - ARCOM Colors -->
+      <div class="flex justify-center pt-2">
+        <div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-[#07D580] to-transparent rounded-full shadow-lg shadow-[#07D580]/50 motion-element" data-motion="divider"></div>
+      </div>
+    </div>
+
+    <!-- Executive Value Proposition - ARCOM Colors -->
+    <div class="mb-10 motion-element" data-motion="value-prop">
+      <p class={`font-semibold text-transparent bg-gradient-to-r from-[#71F5E6] to-[#71D9F5] bg-clip-text max-w-4xl mx-auto leading-relaxed mb-4 ${lang === 'ar' ? 'text-lg md:text-xl lg:text-2xl font-arabic' : 'text-xl md:text-2xl lg:text-3xl'}`}>
+        {lang === 'ar' ? 'شريك التميز في إدارة المرافق' : 'Excellence Partners in Facilities Management'}
+      </p>
+      <p class={`text-[#F5FCF8]/80 max-w-3xl mx-auto leading-relaxed ${lang === 'ar' ? 'text-sm md:text-base lg:text-lg font-arabic' : 'text-base md:text-lg lg:text-xl'}`}>
+        {lang === 'ar' ? 
+          'حلول متطورة ومتكاملة تعزز الكفاءة التشغيلية والاستدامة البيئية' : 
+          'Advanced integrated solutions enhancing operational efficiency and environmental sustainability'
+        }
+      </p>
+    </div>
+
+    <!-- Premium Executive CTAs - ARCOM Colors -->
+    <div class="mb-12 motion-element" data-motion="ctas">
+      <div class={`flex gap-4 justify-center items-center ${lang === 'ar' ? 'flex-col sm:flex-row-reverse' : 'flex-col sm:flex-row'}`}>
+        <!-- Primary Executive CTA -->
+        <a href={`/${lang}/#contact`} class={`enterprise-cta-primary group motion-button ${lang === 'ar' ? 'font-arabic' : ''}`} data-motion="primary-cta">
+          <span class="relative z-10 font-bold">
+            {lang === 'ar' ? 'ابدأ شراكتك معنا' : 'Start Your Partnership'}
+          </span>
+          <div class="absolute inset-0 bg-gradient-to-r from-[#07D580] to-[#71D9F5] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-lg"></div>
+        </a>
+        
+        <!-- Secondary Executive CTA -->
+        <a href={`/${lang}/#services`} class={`enterprise-cta-secondary group motion-button ${lang === 'ar' ? 'font-arabic' : ''}`} data-motion="secondary-cta">
+          <span class="font-semibold">{lang === 'ar' ? 'استكشف حلولنا المتطورة' : 'Explore Our Solutions'}</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Premium Corporate Statistics - ARCOM Colors -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 motion-element" data-motion="stats">
+      <!-- Projects Achievement -->
+      <div class="enterprise-stat-card group">
+        <div class="stat-icon-enterprise mb-4">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+          </svg>
+        </div>
+        <div class={`stat-number-enterprise ${lang === 'ar' ? 'font-arabic' : ''}`} data-target="1500">1500+</div>
+        <div class={`stat-label-enterprise ${lang === 'ar' ? 'font-arabic' : ''}`}>{lang === 'ar' ? 'مشروع ناجح' : 'Successful Projects'}</div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#07D580]/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      </div>
+
+      <!-- Corporate Experience -->
+      <div class="enterprise-stat-card group">
+        <div class="stat-icon-enterprise mb-4">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+          </svg>
+        </div>
+        <div class={`stat-number-enterprise ${lang === 'ar' ? 'font-arabic' : ''}`} data-target="9">9+</div>
+        <div class={`stat-label-enterprise ${lang === 'ar' ? 'font-arabic' : ''}`}>{lang === 'ar' ? 'سنوات من التميز' : 'Years of Excellence'}</div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#71D9F5]/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      </div>
+
+      <!-- Service Portfolio -->
+      <div class="enterprise-stat-card group">
+        <div class="stat-icon-enterprise mb-4">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2V6"/>
+          </svg>
+        </div>
+        <div class={`stat-number-enterprise ${lang === 'ar' ? 'font-arabic' : ''}`} data-target="8">8</div>
+        <div class={`stat-label-enterprise ${lang === 'ar' ? 'font-arabic' : ''}`}>{lang === 'ar' ? 'خدمات متخصصة' : 'Specialized Services'}</div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#71AFF5]/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      </div>
+
+      <!-- 24/7 Excellence -->
+      <div class="enterprise-stat-card group">
+        <div class="stat-icon-enterprise mb-4">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <div class={`stat-number-enterprise ${lang === 'ar' ? 'font-arabic' : ''}`} data-target="24">24/7</div>
+        <div class={`stat-label-enterprise ${lang === 'ar' ? 'font-arabic' : ''}`}>{lang === 'ar' ? 'دعم متواصل' : 'Continuous Excellence'}</div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#71F58C]/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PREMIUM SERVICE EXCELLENCE RIBBON - ARCOM Colors -->
+  <div class="absolute bottom-0 left-0 right-0 backdrop-blur-xl bg-[#F5FCF8]/5 border-t border-[#07D580]/20 py-6 motion-element" data-motion="ribbon" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
+    <div class="container-custom">
+      <div class={`flex flex-wrap justify-center items-center gap-8 text-sm font-medium ${lang === 'ar' ? 'font-arabic' : ''}`}>
+        <div class="flex items-center gap-3" style="color: #07D580;">
+          <div class="w-3 h-3 rounded-full" style="background-color: #07D580;"></div>
+          <span>{lang === 'ar' ? 'تشغيل وصيانة متطورة' : 'Advanced Operations & Maintenance'}</span>
+        </div>
+        <div class="flex items-center gap-3" style="color: #71D9F5;">
+          <div class="w-3 h-3 rounded-full" style="background-color: #71D9F5;"></div>
+          <span>{lang === 'ar' ? 'ضيافة وفعاليات راقية' : 'Premium Hospitality & Events'}</span>
+        </div>
+        <div class="flex items-center gap-3" style="color: #71AFF5;">
+          <div class="w-3 h-3 rounded-full" style="background-color: #71AFF5;"></div>
+          <span>{lang === 'ar' ? 'خدمات النظافة المتميزة' : 'Excellence Housekeeping Services'}</span>
+        </div>
+        <div class="flex items-center gap-3" style="color: #71F5E6;">
+          <div class="w-3 h-3 rounded-full" style="background-color: #71F5E6;"></div>
+          <span>{lang === 'ar' ? 'خدمات المطارات المتخصصة' : 'Specialized Airport Services'}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* PROFESSIONAL MOTION FOUNDATION - CONTENT VISIBLE IMMEDIATELY */
+  .motion-element {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Fallback animations for reliability - very subtle */
+  @keyframes smoothFadeIn {
+    0% { 
+      opacity: 0.8; 
+      transform: translateY(5px); 
+    }
+    100% { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+
+  /* Minimal staggered animation delays - content visible first */
+  .motion-element[data-motion="main-title"] { animation: none; }
+  .motion-element[data-motion="subtitle"] { animation: none; }
+  .motion-element[data-motion="tagline"] { animation: none; }
+  .motion-element[data-motion="divider"] { animation: none; }
+  .motion-element[data-motion="value-prop"] { animation: none; }
+  .motion-element[data-motion="ctas"] { animation: none; }
+  .motion-element[data-motion="stats"] { animation: none; }
+  .motion-element[data-motion="ribbon"] { animation: none; }
+
+  /* Divider visible immediately */
+  [data-motion="divider"] {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+
+  .motion-button {
+    transform: scale(1);
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .motion-button:hover {
+    transform: scale(1.02) translateY(-1px);
+  }
+  
+  .motion-button:active {
+    transform: scale(0.98);
+    transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* FORTUNE 500 TYPOGRAPHY */
+  .hero-title-enterprise {
+    text-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+    filter: drop-shadow(0 4px 20px rgba(7,213,128,0.3));
+  }
+
+  /* PREMIUM ENTERPRISE CTAs */
+  .enterprise-cta-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 3rem;
+    background: linear-gradient(135deg, #07D580, #71D9F5);
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-radius: 2rem;
+    backdrop-filter: blur(20px);
+    border: none;
+    box-shadow: 0 12px 40px rgba(7,213,128,0.4), 0 6px 20px rgba(113,217,245,0.3);
+    transform: scale(1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    min-width: 280px;
+    text-decoration: none;
+  }
+
+  .enterprise-cta-primary:hover {
+    transform: scale(1.03) translateY(-3px);
+    box-shadow: 0 20px 60px rgba(7,213,128,0.5), 0 10px 30px rgba(113,217,245,0.4);
+    background: linear-gradient(135deg, #08E089, #7EE0F7);
+  }
+
+  .enterprise-cta-primary:active {
+    transform: scale(0.98) translateY(-1px);
+    transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .enterprise-cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 3rem;
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-radius: 2rem;
+    border: 2px solid rgba(7,213,128,0.4);
+    backdrop-filter: blur(20px);
+    transform: scale(1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    min-width: 280px;
+    text-decoration: none;
+  }
+
+  .enterprise-cta-secondary:hover {
+    background: rgba(7,213,128,0.15);
+    border-color: rgba(7,213,128,0.8);
+    transform: scale(1.03) translateY(-3px);
+    box-shadow: 0 20px 60px rgba(7,213,128,0.3);
+    color: #F5FCF8;
+  }
+
+  .enterprise-cta-secondary:active {
+    transform: scale(0.98) translateY(-1px);
+    transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* PREMIUM ENTERPRISE STATISTICS */
+  .enterprise-stat-card {
+    position: relative;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    border-radius: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .enterprise-stat-card:nth-child(1) { animation: none; }
+  .enterprise-stat-card:nth-child(2) { animation: none; }
+  .enterprise-stat-card:nth-child(3) { animation: none; }
+  .enterprise-stat-card:nth-child(4) { animation: none; }
+
+  .enterprise-stat-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(7,213,128,0.3);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  }
+
+  .stat-icon-enterprise {
+    display: flex;
+    justify-content: center;
+    color: #07D580;
+    filter: drop-shadow(0 4px 12px rgba(7,213,128,0.4));
+  }
+
+  .stat-number-enterprise {
+    font-weight: 800;
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #07D580, #71D9F5);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+    filter: drop-shadow(0 2px 8px rgba(7,213,128,0.3));
+  }
+
+  .stat-label-enterprise {
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.4;
+  }
+
+  /* CUSTOM GRADIENT UTILITIES */
+  .bg-gradient-radial {
+    background-image: radial-gradient(circle, var(--tw-gradient-stops));
+  }
+
+  .bg-radial-gradient {
+    background-image: radial-gradient(circle at center, var(--tw-gradient-stops));
+  }
+
+  /* ARABIC TYPOGRAPHY ENHANCEMENTS */
+  .font-arabic {
+    font-family: 'Tajawal', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+    letter-spacing: 0.02em;
+    line-height: 1.6;
+  }
+
+  .font-arabic .hero-title-enterprise {
+    font-weight: 900;
+    letter-spacing: 0.01em;
+  }
+
+  .font-arabic .stat-number-enterprise {
+    font-weight: 800;
+    font-feature-settings: 'tnum' 1;
+  }
+
+  .font-arabic .stat-label-enterprise {
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  /* RTL ENTERPRISE IMPROVEMENTS */
+  [dir="rtl"] .enterprise-cta-primary,
+  [dir="rtl"] .enterprise-cta-secondary {
+    flex-direction: row-reverse;
+  }
+
+  [dir="rtl"] .enterprise-cta-primary svg,
+  [dir="rtl"] .enterprise-cta-secondary svg {
+    transform: scaleX(-1);
+  }
+
+  [dir="rtl"] .enterprise-cta-primary:hover svg,
+  [dir="rtl"] .enterprise-cta-secondary:hover svg {
+    transform: scaleX(-1) scale(1.1);
+  }
+</style>
+
+<script type="module">
+  // Import Motion One from CDN (as per Motion docs)
+  import { animate, stagger, scroll, inView } from "https://cdn.jsdelivr.net/npm/motion@12.18.1/+esm";
+
+  // Enhanced professional animations with Motion One
+  document.addEventListener('DOMContentLoaded', () => {
+    console.log('Motion One loaded successfully from CDN');
+    
+    // Subtle enhancement animations for already visible content
+    const addMotionEnhancements = () => {
+      // Add subtle scale pulse to main title
+      animate(
+        '[data-motion="main-title"]',
+        { scale: [1, 1.02, 1] },
+        { duration: 0.8, easing: "easeInOut", delay: 0.1 }
+      );
+
+      // Add gentle glow effect to divider
+      animate(
+        '[data-motion="divider"]',
+        { opacity: [1, 0.8, 1] },
+        { duration: 1.2, easing: "easeInOut", delay: 0.2 }
+      );
+
+      // Add subtle lift to CTAs
+      animate(
+        '[data-motion="primary-cta"], [data-motion="secondary-cta"]',
+        { y: [0, -2, 0] },
+        { duration: 0.6, easing: "easeOut", delay: stagger(0.1, { start: 0.3 }) }
+      );
+
+      // Add gentle scale to stats
+      animate(
+        '.enterprise-stat-card',
+        { scale: [1, 1.01, 1] },
+        { duration: 0.8, easing: "easeInOut", delay: stagger(0.1, { start: 0.4 }) }
+      );
+    };
+
+    // Don't disable CSS or hide elements - content is already visible!
+    // Just add subtle enhancements
+    addMotionEnhancements();
+
+    // Enhanced button interactions with Motion One
+    const buttons = document.querySelectorAll('.motion-button');
+    buttons.forEach(button => {
+      button.addEventListener('mouseenter', () => {
+        animate(button, { scale: 1.05, y: -2 }, { duration: 0.2, easing: "easeOut" });
+      });
+      
+      button.addEventListener('mouseleave', () => {
+        animate(button, { scale: 1, y: 0 }, { duration: 0.2, easing: "easeOut" });
+      });
+
+      button.addEventListener('mousedown', () => {
+        animate(button, { scale: 0.98 }, { duration: 0.1 });
+      });
+
+      button.addEventListener('mouseup', () => {
+        animate(button, { scale: 1.05 }, { duration: 0.15 });
+      });
+    });
+
+    // Professional stat number counting with Motion One
+    inView('.enterprise-stat-card', ({ target }) => {
+      const numberElement = target.querySelector('.stat-number-enterprise[data-target]');
+      if (numberElement && !numberElement.hasAttribute('data-animated')) {
+        numberElement.setAttribute('data-animated', 'true');
+        
+        const targetValue = numberElement.getAttribute('data-target');
+        const isSpecial = targetValue.includes('+') || targetValue.includes('/');
+        
+        if (!isSpecial) {
+          const finalValue = parseInt(targetValue.replace('+', ''));
+          if (!isNaN(finalValue)) {
+            animate(
+              (progress) => {
+                const currentValue = Math.round(progress * finalValue);
+                numberElement.textContent = currentValue + (targetValue.includes('+') ? '+' : '');
+              },
+              { duration: 1.5, easing: [0.25, 0.46, 0.45, 0.94] }
+            );
+          }
+        }
+      }
+    }, { threshold: 0.3 });
+
+    // Subtle parallax effect
+    scroll(
+      ({ y }) => {
+        const heroSection = document.getElementById('hero');
+        if (heroSection && y.progress < 1) {
+          heroSection.style.transform = `translateY(${y.progress * 20}px)`;
+        }
+      },
+      { target: document.getElementById('hero') }
+    );
+
+    // Professional hover effects for stat cards
+    const statCards = document.querySelectorAll('.enterprise-stat-card');
+    statCards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        animate(card, { y: -8, scale: 1.02 }, { duration: 0.3, easing: "easeOut" });
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        animate(card, { y: 0, scale: 1 }, { duration: 0.3, easing: "easeOut" });
+      });
+    });
+
+  });
+</script>
+
+<script>
+  // Fallback script for when Motion One CDN is not available
+  document.addEventListener('DOMContentLoaded', () => {
+    // Ensure elements become visible after a reasonable delay
+    setTimeout(() => {
+      const motionElements = document.querySelectorAll('.motion-element, .enterprise-stat-card');
+      motionElements.forEach(el => {
+        if (el.style.opacity === '0' || window.getComputedStyle(el).opacity === '0') {
+          el.style.animation = 'smoothFadeIn 0.8s ease-out forwards';
+          el.style.opacity = '1';
+        }
+      });
+    }, 2000);
+
+    // Basic stat counting fallback
+    const observeStats = () => {
+      const statCards = document.querySelectorAll('.enterprise-stat-card');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const numberElement = entry.target.querySelector('.stat-number-enterprise[data-target]');
+            if (numberElement && !numberElement.hasAttribute('data-animated')) {
+              numberElement.setAttribute('data-animated', 'true');
+              
+              const targetValue = numberElement.getAttribute('data-target');
+              if (targetValue && !targetValue.includes('/')) {
+                const finalValue = parseInt(targetValue.replace('+', ''));
+                if (!isNaN(finalValue)) {
+                  let currentValue = 0;
+                  const increment = finalValue / 50;
+                  const timer = setInterval(() => {
+                    currentValue += increment;
+                    if (currentValue >= finalValue) {
+                      currentValue = finalValue;
+                      clearInterval(timer);
+                    }
+                    numberElement.textContent = Math.round(currentValue) + (targetValue.includes('+') ? '+' : '');
+                  }, 30);
+                }
+              }
+            }
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+      
+      statCards.forEach(card => observer.observe(card));
+    };
+
+    observeStats();
+  });
+</script> 
