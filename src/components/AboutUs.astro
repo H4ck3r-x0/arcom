@@ -1,0 +1,373 @@
+---
+interface Props {
+  lang: 'ar' | 'en'
+}
+
+const { lang } = Astro.props
+const isRTL = lang === 'ar'
+
+// Enhanced content with more sophisticated storytelling
+const content = {
+  ar: {
+    title: "قصة أركوم",
+    subtitle: "حيث تبدأ قصة التميز",
+    heroText: "في عالم يتسارع نحو المستقبل، نحن نبني الجسور بين الحلم والواقع",
+    description: "في عالم يشهد تسارعًا هائلا في الابتكار والتطور التكنولوجي، حيث البقاء للأكثر مرونة واستدامة، تبرز الشركة العربية لإدارة المرافق - اركوم كشريك موثوق وحيوي يعيد الحياة للمرافق ويضمن استمراريتها. منذ تأسيسها في الرياض عام ٢٠١٥، وضعت اركوم بصمتها بوضوح في مجال الصيانة والتشغيل عبر مختلف القطاعات، من المباني التجارية إلى السكنية، ومن المنشآت الصناعية إلى السياحية والصحية."
+  },
+  en: {
+    title: "The Arcom Story",
+    subtitle: "Where Excellence Begins",
+    heroText: "In a world racing towards the future, we build bridges between dreams and reality",
+    description: "In a world experiencing rapid innovation and technological advancement, where survival depends on flexibility and sustainability, the Accredited Arabian Company for facilities Management \"Arcom\" stands out as a trusted and dynamic partner that revitalizes facilities and ensures their continuity. Since its establishment in Riyadh in 2015, Arcom has clearly made its mark in the field of maintenance and operations across various sectors, from commercial to residential buildings, and from industrial to tourism and healthcare establishments."
+  }
+}
+
+const t = content[lang]
+---
+
+<!-- Premium About Section with Viewport-Optimized Design -->
+<section id="about" class="relative h-screen flex items-center justify-center overflow-hidden">
+  <!-- Revolutionary Background System -->
+  <div class="absolute inset-0">
+    <!-- Base Layer -->
+    <div class="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-emerald-50"></div>
+    
+    <!-- Mesh Gradient Layer -->
+    <div class="absolute inset-0 bg-gradient-to-tr from-[#07D580]/10 via-cyan-100/20 to-[#047C46]/15 animate-mesh-shift"></div>
+    
+    <!-- Radial Gradient Overlay -->
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(7,213,128,0.15),transparent)]"></div>
+    
+    <!-- Noise Texture -->
+    <div class="absolute inset-0 opacity-20 mix-blend-soft-light" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48ZmlsdGVyIGlkPSJub2lzZSI+PGZlVHVyYnVsZW5jZSBiYXNlRnJlcXVlbmN5PSIwLjkiIG51bU9jdGF2ZXM9IjQiIHJlc3VsdD0ibm9pc2UiLz48ZmVDb2xvck1hdHJpeCBpbj0ibm9pc2UiIHR5cGU9InNhdHVyYXRlIiB2YWx1ZXM9IjAiLz48L2ZpbHRlcj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI25vaXNlKSIgb3BhY2l0eT0iMC4xIi8+PC9zdmc+')"></div>
+  </div>
+
+  <!-- Advanced Floating Elements -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <!-- Hero Orbs with Advanced Gradients -->
+    <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-gradient-to-br from-[#07D580]/12 via-emerald-300/8 to-cyan-400/10 blur-3xl animate-float-hero"></div>
+    <div class="absolute -bottom-32 -left-32 w-80 h-80 rounded-full bg-gradient-to-tr from-[#047C46]/15 via-teal-400/10 to-[#07D580]/12 blur-3xl animate-float-hero-reverse"></div>
+    
+    <!-- Medium Accent Elements -->
+    <div class="absolute top-1/4 left-1/5 w-48 h-48 rounded-full bg-gradient-to-br from-cyan-200/15 to-[#07D580]/20 blur-2xl animate-float-orbit"></div>
+    <div class="absolute bottom-1/4 right-1/5 w-40 h-40 rounded-full bg-gradient-to-bl from-emerald-300/20 to-[#047C46]/15 blur-xl animate-float-orbit-reverse"></div>
+    
+    <!-- Geometric Accent Shapes -->
+    <div class="absolute top-1/3 right-1/4 w-32 h-32 rotate-45 bg-gradient-to-br from-[#07D580]/8 to-transparent rounded-3xl animate-geometric-float"></div>
+    <div class="absolute bottom-1/3 left-1/3 w-24 h-24 bg-gradient-to-tr from-cyan-300/10 to-[#047C46]/12 rounded-2xl animate-geometric-pulse"></div>
+    
+    <!-- Micro Details -->
+    <div class="absolute top-1/6 right-1/6 w-16 h-16 rounded-full bg-gradient-to-r from-emerald-400/20 to-[#07D580]/25 blur-sm animate-micro-float"></div>
+    <div class="absolute bottom-1/6 left-1/6 w-12 h-12 rounded-full bg-gradient-to-l from-[#047C46]/20 to-cyan-400/15 blur-sm animate-micro-float-delayed"></div>
+  </div>
+
+  <div class="container mx-auto px-6 lg:px-8 relative z-10 h-full flex items-center">
+    <div class="max-w-5xl mx-auto text-center w-full">
+      <!-- Premium Content Container - Clean Layout -->
+      <div class="space-y-10 animate-section-reveal" dir={isRTL ? 'rtl' : 'ltr'}>
+        
+        <!-- Revolutionary Typography - Enhanced Headline -->
+        <div class="space-y-8">
+          <!-- Main Title with Advanced Effects - ENLARGED -->
+          <div class="relative">
+            <!-- Background Text -->
+            <div class="absolute inset-0 flex items-center justify-center">
+              <span class="text-7xl lg:text-8xl xl:text-9xl font-black text-[#07D580]/5 blur-sm select-none animate-background-text">
+                {lang === 'ar' ? 'أركوم' : 'ARCOM'}
+              </span>
+            </div>
+            
+            <!-- Primary Title - ENLARGED -->
+            <h1 class="relative z-10 space-y-4">
+              <div class="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-slate-800 tracking-tight animate-title-slide-up" style="animation-delay: 0.2s;">
+                {t.title.split(' ')[0]}
+              </div>
+              <div class="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black bg-gradient-to-r from-[#07D580] via-emerald-400 via-cyan-400 to-[#047C46] bg-clip-text text-transparent animate-gradient-flow" style="animation-delay: 0.4s;">
+                {lang === 'ar' ? 'أركوم' : 'Arcom'}
+              </div>
+            </h1>
+          </div>
+          
+          <!-- Enhanced Subtitle - NORMAL SIZE -->
+          <div class="relative max-w-4xl mx-auto">
+            <p class="text-xl lg:text-2xl text-slate-600 leading-relaxed font-light tracking-wide animate-subtitle-fade" style="animation-delay: 0.6s;">
+              {t.subtitle}
+            </p>
+          </div>
+          
+          <!-- Hero Statement - NORMAL SIZE -->
+          <p class="text-lg lg:text-xl text-slate-700 leading-relaxed max-w-4xl mx-auto font-medium animate-hero-text" style="animation-delay: 0.8s;">
+            {t.heroText}
+          </p>
+        </div>
+
+        <!-- Premium Description Card - Enhanced Design -->
+        <div class="relative max-w-4xl mx-auto animate-card-reveal" style="animation-delay: 1s;">
+          <!-- Multi-layer Glow System -->
+          <div class="absolute -inset-8 bg-gradient-to-r from-[#07D580]/15 via-emerald-400/10 to-[#047C46]/15 rounded-3xl blur-3xl opacity-70 animate-pulse-glow-soft"></div>
+          <div class="absolute -inset-4 bg-gradient-to-br from-cyan-300/20 to-teal-400/20 rounded-3xl blur-xl opacity-60"></div>
+          
+          <!-- Main Card with Enhanced Glassmorphism -->
+          <div class="group relative p-10 lg:p-12 rounded-3xl bg-white/80 backdrop-blur-3xl border border-white/40 shadow-2xl shadow-black/8 hover:shadow-3xl hover:shadow-[#07D580]/10 transition-all duration-700">
+            <!-- Dynamic Inner Gradient Layers -->
+            <div class="absolute inset-0 bg-gradient-to-br from-[#07D580]/8 via-emerald-50/40 to-[#047C46]/12 rounded-3xl opacity-80"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-white/30 to-transparent rounded-3xl"></div>
+            <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-cyan-50/30 to-emerald-100/20 rounded-3xl"></div>
+            
+            <!-- Subtle Border Enhancement -->
+            <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-[#07D580]/20 via-transparent to-[#047C46]/20 p-[1px]">
+              <div class="w-full h-full rounded-3xl bg-transparent"></div>
+            </div>
+            
+            <!-- Interactive Hover Glow -->
+            <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-[#07D580]/5 to-[#047C46]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            
+            <!-- Content with Enhanced Typography -->
+            <div class="relative z-10">
+              <!-- Main Text with Better Styling -->
+              <p class="text-base lg:text-lg text-slate-700 leading-relaxed font-medium tracking-wide">
+                {t.description}
+              </p>
+              
+              <!-- Subtle Footer Element -->
+              <div class="flex justify-center mt-8">
+                <div class="flex space-x-2">
+                  <div class="w-2 h-2 rounded-full bg-[#07D580]/40"></div>
+                  <div class="w-2 h-2 rounded-full bg-emerald-400/40"></div>
+                  <div class="w-2 h-2 rounded-full bg-[#047C46]/40"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Advanced Animation Keyframes */
+  @keyframes mesh-shift {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    33% { transform: rotate(1deg) scale(1.02); }
+    66% { transform: rotate(-1deg) scale(0.98); }
+  }
+
+  @keyframes float-hero {
+    0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
+    33% { transform: translate3d(-30px, -20px, 0) rotate(1deg) scale(1.05); }
+    66% { transform: translate3d(15px, -10px, 0) rotate(-0.5deg) scale(0.95); }
+  }
+
+  @keyframes float-hero-reverse {
+    0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
+    33% { transform: translate3d(25px, 15px, 0) rotate(-1deg) scale(1.03); }
+    66% { transform: translate3d(-20px, 10px, 0) rotate(0.5deg) scale(0.97); }
+  }
+
+  @keyframes float-orbit {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    50% { transform: translate3d(-20px, -25px, 0) scale(1.1); }
+  }
+
+  @keyframes float-orbit-reverse {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    50% { transform: translate3d(20px, 25px, 0) scale(1.08); }
+  }
+
+  @keyframes geometric-float {
+    0%, 100% { transform: rotate(45deg) translate3d(0, 0, 0); }
+    50% { transform: rotate(75deg) translate3d(-10px, -15px, 0); }
+  }
+
+  @keyframes geometric-pulse {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.6; }
+    50% { transform: scale(1.15) rotate(5deg); opacity: 0.9; }
+  }
+
+  @keyframes micro-float {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    50% { transform: translate3d(-8px, -12px, 0) scale(1.2); }
+  }
+
+  @keyframes micro-float-delayed {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    50% { transform: translate3d(8px, 12px, 0) scale(1.15); }
+  }
+
+  @keyframes section-reveal {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes title-slide-up {
+    from { opacity: 0; transform: translateY(30px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  @keyframes subtitle-fade {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes hero-text {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes card-reveal {
+    from { opacity: 0; transform: translateY(30px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  @keyframes gradient-flow {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  @keyframes background-text {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.05; }
+    50% { transform: scale(1.02) rotate(0.5deg); opacity: 0.08; }
+  }
+
+  @keyframes pulse-glow-soft {
+    0%, 100% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.02); opacity: 0.9; }
+  }
+
+  /* Animation Classes */
+  .animate-mesh-shift { animation: mesh-shift 20s ease-in-out infinite; }
+  .animate-float-hero { animation: float-hero 15s ease-in-out infinite; }
+  .animate-float-hero-reverse { animation: float-hero-reverse 18s ease-in-out infinite; }
+  .animate-float-orbit { animation: float-orbit 12s ease-in-out infinite; }
+  .animate-float-orbit-reverse { animation: float-orbit-reverse 14s ease-in-out infinite; }
+  .animate-geometric-float { animation: geometric-float 16s ease-in-out infinite; }
+  .animate-geometric-pulse { animation: geometric-pulse 8s ease-in-out infinite; }
+  .animate-micro-float { animation: micro-float 6s ease-in-out infinite; }
+  .animate-micro-float-delayed { animation: micro-float-delayed 7s ease-in-out infinite; animation-delay: 1s; }
+  .animate-section-reveal { animation: section-reveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  .animate-title-slide-up { animation: title-slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
+  .animate-subtitle-fade { animation: subtitle-fade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
+  .animate-hero-text { animation: hero-text 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
+  .animate-card-reveal { animation: card-reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
+  .animate-gradient-flow { background-size: 400% 400%; animation: gradient-flow 6s ease-in-out infinite; }
+  .animate-background-text { animation: background-text 12s ease-in-out infinite; }
+  .animate-pulse-glow-soft { animation: pulse-glow-soft 4s ease-in-out infinite; }
+
+  /* Enhanced Glass Morphism */
+  .backdrop-blur-3xl { backdrop-filter: blur(40px) saturate(180%); }
+
+  /* Custom Shadows */
+  .shadow-3xl { 
+    box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25), 
+                0 0 0 1px rgba(255, 255, 255, 0.3); 
+  }
+
+  /* Responsive Optimizations for Viewport Fit */
+  @media (max-height: 800px) {
+    .space-y-10 > * + * { margin-top: 1.5rem; }
+    .space-y-8 > * + * { margin-top: 1.5rem; }
+  }
+
+  @media (max-height: 700px) {
+    .space-y-10 > * + * { margin-top: 1rem; }
+    .space-y-8 > * + * { margin-top: 1rem; }
+  }
+
+  /* Mobile typography adjustments */
+  @media (max-width: 640px) {
+    h1 .space-y-4 > * + * { margin-top: 0.75rem; }
+  }
+
+  @media (max-width: 768px) {
+    .animate-section-reveal { animation-duration: 0.8s; }
+    .animate-title-slide-up { animation-duration: 0.8s; }
+  }
+
+  /* Ultra-wide screen optimizations */
+  @media (min-width: 1536px) {
+    .container { max-width: 1400px; }
+  }
+
+  /* Reduced Motion Support */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>
+
+<script>
+  // Advanced Intersection Observer with Performance Optimization
+  const observerOptions = {
+    threshold: [0.1, 0.3, 0.5],
+    rootMargin: '0px 0px -100px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Trigger reveal animations
+        entry.target.classList.add('revealed');
+        
+        // Add staggered animations to child elements
+        const animatedElements = entry.target.querySelectorAll('[style*="animation-delay"]');
+        animatedElements.forEach((el, index) => {
+          setTimeout(() => {
+            el.classList.add('animate-in');
+          }, index * 200);
+        });
+      }
+    });
+  }, observerOptions);
+
+  // Observe the section
+  const aboutSection = document.querySelector('#about');
+  if (aboutSection) {
+    observer.observe(aboutSection);
+  }
+
+  // Parallax Effect for Background Elements
+  const parallaxElements = document.querySelectorAll('[class*="animate-float"]') as NodeListOf<HTMLElement>;
+  
+  const handleParallax = () => {
+    const scrolled = window.pageYOffset;
+    const rate = scrolled * -0.5;
+    
+    parallaxElements.forEach((element, index) => {
+      const speed = (index + 1) * 0.1;
+      element.style.transform = `translateY(${rate * speed}px)`;
+    });
+  };
+
+  // Throttled scroll handler for performance
+  let ticking = false;
+  const requestTick = () => {
+    if (!ticking) {
+      requestAnimationFrame(handleParallax);
+      ticking = true;
+    }
+  };
+
+  window.addEventListener('scroll', () => {
+    requestTick();
+    ticking = false;
+  });
+
+  // Performance optimization for animations
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  
+  if (prefersReducedMotion.matches) {
+    document.documentElement.style.setProperty('--animation-duration', '0.01s');
+  }
+
+  // Interactive hover effects
+  const interactiveElements = document.querySelectorAll('.group') as NodeListOf<HTMLElement>;
+  interactiveElements.forEach(element => {
+    element.addEventListener('mouseenter', () => {
+      element.style.transform = 'translateZ(0)'; // Force hardware acceleration
+    });
+  });
+</script> 

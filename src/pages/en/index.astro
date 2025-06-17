@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro'
 import Navigation from '../../components/Navigation.astro'
 import Hero from '../../components/Hero.astro'
+import AboutUs from '../../components/AboutUs.astro'
 import { useTranslations } from '../../utils/i18n'
 
 const lang = 'en'
@@ -20,4 +21,7 @@ const description = t('common.tagline', currentLang)
 	
 	<!-- Ultimate 10/10 Hero Section -->
 	<Hero lang={currentLang} />
+	
+	<!-- About Us Section -->
+	<AboutUs lang={currentLang} />
 </Layout>
