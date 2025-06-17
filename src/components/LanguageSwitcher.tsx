@@ -68,10 +68,10 @@ export default function LanguageSwitcher({
       {isOpen && (
         <>
           <div
-            className="fixed inset-0 z-40"
+            className="fixed inset-0 z-[999998]"
             onClick={() => setIsOpen(false)}
           />
-          <div className="absolute top-full mt-2 right-0 z-50 bg-white border border-neutral-200 rounded-lg shadow-lg overflow-hidden min-w-[140px]">
+          <div className="absolute top-full mt-2 right-0 z-[999999] bg-white border border-neutral-200 rounded-lg shadow-xl overflow-hidden min-w-[140px]">
             {Object.entries(languages).map(([lang, label]) => (
               <button
                 key={lang}

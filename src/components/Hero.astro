@@ -10,9 +10,9 @@ const t = useTranslations(lang);
 ---
 
 <!-- REVOLUTIONARY FORTUNE 500 HERO SECTION -->
-<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-black isolate pt-24 md:pt-28 lg:pt-24">
   <!-- CINEMATIC BACKGROUND SYSTEM -->
-  <div class="absolute inset-0">
+  <div class="absolute inset-0 -z-10">
     <!-- Ultra-Premium Base Gradient - ARCOM Brand Colors -->
     <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-[#047C46] to-black"></div>
     
@@ -75,7 +75,7 @@ const t = useTranslations(lang);
   </div>
 
   <!-- PREMIUM CONTENT SYSTEM -->
-  <div class="relative z-10 container-custom text-center text-white" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
+  <div class="relative container-custom text-center text-white" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
     
     <!-- Fortune 500 Brand Messaging - ARCOM Colors -->
     <div class="mb-8 space-y-4">
@@ -113,12 +113,11 @@ const t = useTranslations(lang);
     <!-- Premium Executive CTAs - ARCOM Colors -->
     <div class="mb-12 motion-element" data-motion="ctas">
       <div class={`flex gap-4 justify-center items-center ${lang === 'ar' ? 'flex-col sm:flex-row-reverse' : 'flex-col sm:flex-row'}`}>
-        <!-- Primary Executive CTA -->
+        <!-- Premium Primary CTA -->
         <a href={`/${lang}/#contact`} class={`enterprise-cta-primary group motion-button ${lang === 'ar' ? 'font-arabic' : ''}`} data-motion="primary-cta">
           <span class="relative z-10 font-bold">
             {lang === 'ar' ? 'ابدأ شراكتك معنا' : 'Start Your Partnership'}
           </span>
-          <div class="absolute inset-0 bg-gradient-to-r from-[#07D580] to-[#71D9F5] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-lg"></div>
         </a>
         
         <!-- Secondary Executive CTA -->
@@ -180,29 +179,7 @@ const t = useTranslations(lang);
     </div>
   </div>
 
-  <!-- PREMIUM SERVICE EXCELLENCE RIBBON - ARCOM Colors -->
-  <div class="absolute bottom-0 left-0 right-0 backdrop-blur-xl bg-[#F5FCF8]/5 border-t border-[#07D580]/20 py-6 motion-element" data-motion="ribbon" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
-    <div class="container-custom">
-      <div class={`flex flex-wrap justify-center items-center gap-8 text-sm font-medium ${lang === 'ar' ? 'font-arabic' : ''}`}>
-        <div class="flex items-center gap-3" style="color: #07D580;">
-          <div class="w-3 h-3 rounded-full" style="background-color: #07D580;"></div>
-          <span>{lang === 'ar' ? 'تشغيل وصيانة متطورة' : 'Advanced Operations & Maintenance'}</span>
-        </div>
-        <div class="flex items-center gap-3" style="color: #71D9F5;">
-          <div class="w-3 h-3 rounded-full" style="background-color: #71D9F5;"></div>
-          <span>{lang === 'ar' ? 'ضيافة وفعاليات راقية' : 'Premium Hospitality & Events'}</span>
-        </div>
-        <div class="flex items-center gap-3" style="color: #71AFF5;">
-          <div class="w-3 h-3 rounded-full" style="background-color: #71AFF5;"></div>
-          <span>{lang === 'ar' ? 'خدمات النظافة المتميزة' : 'Excellence Housekeeping Services'}</span>
-        </div>
-        <div class="flex items-center gap-3" style="color: #71F5E6;">
-          <div class="w-3 h-3 rounded-full" style="background-color: #71F5E6;"></div>
-          <span>{lang === 'ar' ? 'خدمات المطارات المتخصصة' : 'Specialized Airport Services'}</span>
-        </div>
-      </div>
-    </div>
-  </div>
+
 </section>
 
 <style>
@@ -260,38 +237,85 @@ const t = useTranslations(lang);
     filter: drop-shadow(0 4px 20px rgba(7,213,128,0.3));
   }
 
-  /* PREMIUM ENTERPRISE CTAs */
+  /* REFINED ENTERPRISE CTAs - PROFESSIONAL PRIMARY BUTTON */
   .enterprise-cta-primary {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: 1.5rem 3rem;
-    background: linear-gradient(135deg, #07D580, #71D9F5);
+    background: linear-gradient(135deg, #047C46 0%, #059656 50%, #07D580 100%);
     color: white;
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 1.125rem;
     border-radius: 2rem;
     backdrop-filter: blur(20px);
-    border: none;
-    box-shadow: 0 12px 40px rgba(7,213,128,0.4), 0 6px 20px rgba(113,217,245,0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+      0 12px 30px rgba(4,124,70,0.25),
+      0 6px 15px rgba(7,213,128,0.15),
+      inset 0 1px 0 rgba(255,255,255,0.1);
     transform: scale(1);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     position: relative;
     overflow: hidden;
     min-width: 280px;
     text-decoration: none;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  }
+
+  /* Animated gradient background */
+  .enterprise-cta-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+      transparent,
+      rgba(255,255,255,0.2),
+      transparent
+    );
+    transition: left 0.8s ease;
+  }
+
+  .enterprise-cta-primary:hover::before {
+    left: 100%;
+  }
+
+  /* Refined glow effect */
+  .enterprise-cta-primary::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    background: linear-gradient(135deg, #047C46, #059656, #047C46);
+    border-radius: 2rem;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    filter: blur(4px);
+  }
+
+  .enterprise-cta-primary:hover::after {
+    opacity: 0.3;
   }
 
   .enterprise-cta-primary:hover {
-    transform: scale(1.03) translateY(-3px);
-    box-shadow: 0 20px 60px rgba(7,213,128,0.5), 0 10px 30px rgba(113,217,245,0.4);
-    background: linear-gradient(135deg, #08E089, #7EE0F7);
+    transform: scale(1.02) translateY(-2px);
+    box-shadow: 
+      0 18px 40px rgba(4,124,70,0.3),
+      0 8px 20px rgba(5,150,86,0.2),
+      inset 0 1px 0 rgba(255,255,255,0.15);
+    background: linear-gradient(135deg, #059656 0%, #07D580 50%, #08E089 100%);
+    border-color: rgba(255,255,255,0.15);
   }
 
   .enterprise-cta-primary:active {
-    transform: scale(0.98) translateY(-1px);
-    transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: scale(0.98) translateY(-2px);
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   }
+
+
 
   .enterprise-cta-secondary {
     display: inline-flex;
@@ -411,172 +435,359 @@ const t = useTranslations(lang);
   /* RTL ENTERPRISE IMPROVEMENTS */
   [dir="rtl"] .enterprise-cta-primary,
   [dir="rtl"] .enterprise-cta-secondary {
-    flex-direction: row-reverse;
+    text-align: center;
   }
 
-  [dir="rtl"] .enterprise-cta-primary svg,
-  [dir="rtl"] .enterprise-cta-secondary svg {
-    transform: scaleX(-1);
+  /* Perfect Animation Initialization */
+  [data-motion="main-title"],
+  [data-motion="subtitle"], 
+  [data-motion="tagline"],
+  [data-motion="divider"],
+  [data-motion="value-prop"],
+  [data-motion="primary-cta"],
+  [data-motion="secondary-cta"],
+  [data-motion="ribbon"],
+  .enterprise-stat-card {
+    opacity: 0;
   }
 
-  [dir="rtl"] .enterprise-cta-primary:hover svg,
-  [dir="rtl"] .enterprise-cta-secondary:hover svg {
-    transform: scaleX(-1) scale(1.1);
+  /* Smooth transitions for enhanced UX */
+  .motion-button,
+  .enterprise-cta-primary,
+  .enterprise-cta-secondary {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .stat-icon-enterprise,
+  .stat-number-enterprise {
+    transition: all 0.3s ease-out;
   }
 </style>
 
 <script type="module">
-  // Import Motion One from CDN (as per Motion docs)
+  // Import Motion One from CDN - this works in browser module scripts
   import { animate, stagger, scroll, inView } from "https://cdn.jsdelivr.net/npm/motion@12.18.1/+esm";
 
-  // Enhanced professional animations with Motion One
+  console.log('Motion One imported successfully');
+
+  // Perfect professional animations with Motion One
   document.addEventListener('DOMContentLoaded', () => {
-    console.log('Motion One loaded successfully from CDN');
     
-    // Subtle enhancement animations for already visible content
-    const addMotionEnhancements = () => {
-      // Add subtle scale pulse to main title
+    // Perfect entrance animations with sophisticated timing
+    const createPerfectAnimations = () => {
+      // Hero title sequence - stunning entrance
       animate(
         '[data-motion="main-title"]',
-        { scale: [1, 1.02, 1] },
-        { duration: 0.8, easing: "easeInOut", delay: 0.1 }
+        { 
+          opacity: [0, 1],
+          y: [30, 0],
+          scale: [0.95, 1.02, 1]
+        },
+        { 
+          duration: 1.2, 
+          easing: [0.25, 0.46, 0.45, 0.94],
+          delay: 0.2 
+        }
       );
 
-      // Add gentle glow effect to divider
+      // Subtitle elegant emergence
+      animate(
+        '[data-motion="subtitle"]',
+        { 
+          opacity: [0, 1],
+          y: [20, 0],
+          scale: [0.98, 1]
+        },
+        { 
+          duration: 0.8, 
+          easing: "easeOut",
+          delay: 0.6 
+        }
+      );
+
+      // Tagline smooth appearance
+      animate(
+        '[data-motion="tagline"]',
+        { 
+          opacity: [0, 1],
+          y: [15, 0]
+        },
+        { 
+          duration: 0.6, 
+          easing: "easeOut",
+          delay: 0.9 
+        }
+      );
+
+      // Divider elegant glow animation
       animate(
         '[data-motion="divider"]',
-        { opacity: [1, 0.8, 1] },
-        { duration: 1.2, easing: "easeInOut", delay: 0.2 }
+        { 
+          opacity: [0, 1],
+          scaleX: [0, 1],
+          boxShadow: [
+            '0 0 0px rgba(7, 213, 128, 0)',
+            '0 0 20px rgba(7, 213, 128, 0.5)',
+            '0 0 10px rgba(7, 213, 128, 0.3)'
+          ]
+        },
+        { 
+          duration: 1.5, 
+          easing: [0.25, 0.46, 0.45, 0.94],
+          delay: 1.1 
+        }
       );
 
-      // Add subtle lift to CTAs
+      // Value proposition smooth entrance
       animate(
-        '[data-motion="primary-cta"], [data-motion="secondary-cta"]',
-        { y: [0, -2, 0] },
-        { duration: 0.6, easing: "easeOut", delay: stagger(0.1, { start: 0.3 }) }
+        '[data-motion="value-prop"]',
+        { 
+          opacity: [0, 1],
+          y: [25, 0]
+        },
+        { 
+          duration: 0.8, 
+          easing: "easeOut",
+          delay: 1.3 
+        }
       );
 
-      // Add gentle scale to stats
+      // CTA buttons stunning entrance with stagger
+      animate(
+        '[data-motion="primary-cta"]',
+        { 
+          opacity: [0, 1],
+          y: [30, 0],
+          scale: [0.9, 1]
+        },
+        { 
+          duration: 0.7, 
+          easing: [0.25, 0.46, 0.45, 0.94],
+          delay: 1.5 
+        }
+      );
+
+      animate(
+        '[data-motion="secondary-cta"]',
+        { 
+          opacity: [0, 1],
+          y: [30, 0],
+          scale: [0.9, 1]
+        },
+        { 
+          duration: 0.7, 
+          easing: [0.25, 0.46, 0.45, 0.94],
+          delay: 1.7 
+        }
+      );
+
+      // Stats cards magnificent entrance
       animate(
         '.enterprise-stat-card',
-        { scale: [1, 1.01, 1] },
-        { duration: 0.8, easing: "easeInOut", delay: stagger(0.1, { start: 0.4 }) }
+        { 
+          opacity: [0, 1],
+          y: [40, 0],
+          scale: [0.9, 1]
+        },
+        { 
+          duration: 0.8, 
+          easing: [0.25, 0.46, 0.45, 0.94],
+          delay: stagger(0.1, { start: 1.8 })
+        }
+      );
+
+      // Service ribbon elegant slide-up
+      animate(
+        '[data-motion="ribbon"]',
+        { 
+          opacity: [0, 1],
+          y: [50, 0]
+        },
+        { 
+          duration: 0.8, 
+          easing: "easeOut",
+          delay: 2.2 
+        }
       );
     };
 
-    // Don't disable CSS or hide elements - content is already visible!
-    // Just add subtle enhancements
-    addMotionEnhancements();
-
-    // Enhanced button interactions with Motion One
-    const buttons = document.querySelectorAll('.motion-button');
-    buttons.forEach(button => {
-      button.addEventListener('mouseenter', () => {
-        animate(button, { scale: 1.05, y: -2 }, { duration: 0.2, easing: "easeOut" });
+    // Initialize perfect animations
+    createPerfectAnimations();
+    
+    // Ensure hero content stays visible after entrance animations
+    setTimeout(() => {
+      const motionElements = document.querySelectorAll('[data-motion]');
+      motionElements.forEach(element => {
+        element.style.opacity = '1';
       });
       
-      button.addEventListener('mouseleave', () => {
-        animate(button, { scale: 1, y: 0 }, { duration: 0.2, easing: "easeOut" });
+      const statCards = document.querySelectorAll('.enterprise-stat-card');
+      statCards.forEach(card => {
+        card.style.opacity = '1';
+      });
+    }, 3000); // After all entrance animations complete
+
+    // Perfect button interactions with sophisticated effects
+    const enhancePerfectInteractions = () => {
+      // Premium CTA button interactions
+      const ctaButtons = document.querySelectorAll('.enterprise-cta-primary, .enterprise-cta-secondary');
+      ctaButtons.forEach(button => {
+        // Enhanced primary button interactions
+        if (button.classList.contains('enterprise-cta-primary')) {
+
+          button.addEventListener('mousedown', () => {
+            animate(button, { 
+              scale: 0.98,
+              boxShadow: '0 15px 40px rgba(7, 213, 128, 0.4)'
+            }, { duration: 0.1 });
+          });
+
+          button.addEventListener('mouseup', () => {
+            animate(button, { 
+              scale: 1.05,
+              boxShadow: '0 30px 70px rgba(7, 213, 128, 0.6)'
+            }, { duration: 0.2 });
+          });
+        }
       });
 
-      button.addEventListener('mousedown', () => {
-        animate(button, { scale: 0.98 }, { duration: 0.1 });
+      // Title elements with breathing effect
+      const titleElements = document.querySelectorAll('[data-motion="main-title"], [data-motion="subtitle"]');
+      titleElements.forEach(title => {
+        // Subtle breathing animation
+        animate(
+          title,
+          { scale: [1, 1.005, 1] },
+          { 
+            duration: 4, 
+            easing: "easeInOut",
+            repeat: Infinity,
+            delay: Math.random() * 2
+          }
+        );
       });
 
-      button.addEventListener('mouseup', () => {
-        animate(button, { scale: 1.05 }, { duration: 0.15 });
-      });
-    });
+      // Divider pulsing glow
+      const divider = document.querySelector('[data-motion="divider"]');
+      if (divider) {
+        animate(
+          divider,
+          { 
+            opacity: [0.8, 1, 0.8],
+            boxShadow: [
+              '0 0 10px rgba(7, 213, 128, 0.3)',
+              '0 0 25px rgba(7, 213, 128, 0.6)',
+              '0 0 10px rgba(7, 213, 128, 0.3)'
+            ]
+          },
+          { 
+            duration: 3, 
+            easing: "easeInOut",
+            repeat: Infinity
+          }
+        );
+      }
+    };
 
-    // Professional stat number counting with Motion One
-    inView('.enterprise-stat-card', ({ target }) => {
-      const numberElement = target.querySelector('.stat-number-enterprise[data-target]');
-      if (numberElement && !numberElement.hasAttribute('data-animated')) {
-        numberElement.setAttribute('data-animated', 'true');
-        
-        const targetValue = numberElement.getAttribute('data-target');
-        const isSpecial = targetValue.includes('+') || targetValue.includes('/');
-        
-        if (!isSpecial) {
-          const finalValue = parseInt(targetValue.replace('+', ''));
-          if (!isNaN(finalValue)) {
+    // Initialize perfect interactions
+    enhancePerfectInteractions();
+
+    // Professional stat card reveal - elegant and refined
+    const initializeProfessionalStats = () => {
+      // Wait for entrance animations to complete
+      setTimeout(() => {
+        inView('.enterprise-stat-card', (element, info) => {
+          if (!element || typeof element.querySelector !== 'function') {
+            return;
+          }
+          
+          const numberElement = element.querySelector('.stat-number-enterprise[data-target]');
+          
+          if (numberElement && !numberElement.hasAttribute('data-animated')) {
+            numberElement.setAttribute('data-animated', 'true');
+            
+            // Simple, elegant fade-in for the numbers
             animate(
-              (progress) => {
-                const currentValue = Math.round(progress * finalValue);
-                numberElement.textContent = currentValue + (targetValue.includes('+') ? '+' : '');
+              numberElement,
+              { 
+                opacity: [0, 1],
+                y: [10, 0]
               },
-              { duration: 1.5, easing: [0.25, 0.46, 0.45, 0.94] }
+              { 
+                duration: 0.8, 
+                easing: [0.25, 0.46, 0.45, 0.94]
+              }
             );
           }
-        }
-      }
-    }, { threshold: 0.3 });
+        }, { amount: 0.3 });
+      }, 2500);
+    };
 
-    // Subtle parallax effect
-    scroll(
-      ({ y }) => {
-        const heroSection = document.getElementById('hero');
-        if (heroSection && y.progress < 1) {
-          heroSection.style.transform = `translateY(${y.progress * 20}px)`;
-        }
-      },
-      { target: document.getElementById('hero') }
-    );
+    // Initialize professional stats
+    initializeProfessionalStats();
 
-    // Professional hover effects for stat cards
-    const statCards = document.querySelectorAll('.enterprise-stat-card');
-    statCards.forEach(card => {
-      card.addEventListener('mouseenter', () => {
-        animate(card, { y: -8, scale: 1.02 }, { duration: 0.3, easing: "easeOut" });
+    // Removed scroll effects that were causing flashing issues
+
+    // Professional stat card interactions - subtle and elegant
+    const enhanceProfessionalStatCards = () => {
+      const statCards = document.querySelectorAll('.enterprise-stat-card');
+      statCards.forEach((card, index) => {
+        // Refined hover effects - professional and subtle
+        card.addEventListener('mouseenter', () => {
+          animate(card, { 
+            y: -6, 
+            scale: 1.01,
+            boxShadow: '0 20px 40px -15px rgba(7, 213, 128, 0.15)'
+          }, { 
+            duration: 0.3, 
+            easing: [0.25, 0.46, 0.45, 0.94] 
+          });
+        });
+        
+        card.addEventListener('mouseleave', () => {
+          animate(card, { 
+            y: 0, 
+            scale: 1,
+            boxShadow: '0 8px 20px -8px rgba(0, 0, 0, 0.1)'
+          }, { 
+            duration: 0.3, 
+            easing: [0.25, 0.46, 0.45, 0.94] 
+          });
+        });
       });
-      
-      card.addEventListener('mouseleave', () => {
-        animate(card, { y: 0, scale: 1 }, { duration: 0.3, easing: "easeOut" });
-      });
-    });
+    };
+
+    // Initialize professional stat card interactions
+    enhanceProfessionalStatCards();
 
   });
 </script>
 
 <script>
-  // Fallback script for when Motion One CDN is not available
-  document.addEventListener('DOMContentLoaded', () => {
-    // Ensure elements become visible after a reasonable delay
-    setTimeout(() => {
-      const motionElements = document.querySelectorAll('.motion-element, .enterprise-stat-card');
-      motionElements.forEach(el => {
-        if (el.style.opacity === '0' || window.getComputedStyle(el).opacity === '0') {
-          el.style.animation = 'smoothFadeIn 0.8s ease-out forwards';
-          el.style.opacity = '1';
-        }
-      });
-    }, 2000);
-
-    // Basic stat counting fallback
+  // Professional fallback for browsers that don't support ES modules or if CDN fails
+  window.addEventListener('DOMContentLoaded', () => {
+    // Simple and elegant stat reveal fallback
     const observeStats = () => {
       const statCards = document.querySelectorAll('.enterprise-stat-card');
+      if (!statCards.length) return;
+
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) {
+          if (entry.isIntersecting && entry.target) {
             const numberElement = entry.target.querySelector('.stat-number-enterprise[data-target]');
-            if (numberElement && !numberElement.hasAttribute('data-animated')) {
-              numberElement.setAttribute('data-animated', 'true');
+            if (numberElement && !numberElement.hasAttribute('data-fallback-animated')) {
+              numberElement.setAttribute('data-fallback-animated', 'true');
               
-              const targetValue = numberElement.getAttribute('data-target');
-              if (targetValue && !targetValue.includes('/')) {
-                const finalValue = parseInt(targetValue.replace('+', ''));
-                if (!isNaN(finalValue)) {
-                  let currentValue = 0;
-                  const increment = finalValue / 50;
-                  const timer = setInterval(() => {
-                    currentValue += increment;
-                    if (currentValue >= finalValue) {
-                      currentValue = finalValue;
-                      clearInterval(timer);
-                    }
-                    numberElement.textContent = Math.round(currentValue) + (targetValue.includes('+') ? '+' : '');
-                  }, 30);
-                }
+              // Simple, professional fade-in
+              if (numberElement instanceof HTMLElement) {
+                numberElement.style.opacity = '0';
+                numberElement.style.transform = 'translateY(10px)';
+                numberElement.style.transition = 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                
+                setTimeout(() => {
+                  numberElement.style.opacity = '1';
+                  numberElement.style.transform = 'translateY(0)';
+                }, 100);
               }
             }
             observer.unobserve(entry.target);
@@ -587,6 +798,7 @@ const t = useTranslations(lang);
       statCards.forEach(card => observer.observe(card));
     };
 
-    observeStats();
+    // Professional timing - after entrance animations complete
+    setTimeout(observeStats, 2500);
   });
 </script> 

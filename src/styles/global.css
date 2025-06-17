@@ -107,7 +107,7 @@
 
 @layer base {
   * {
-    border-color: theme(colors.neutral.200);
+    border-color: #e5e5e5;
   }
 
   html {
@@ -652,6 +652,146 @@
     padding: 2rem;
   }
 
+  /* Enhanced Mobile Navigation Styles for React Component */
+  .hamburger-premium {
+    width: 24px;
+    height: 18px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .hamburger-line-premium {
+    width: 100%;
+    height: 2.5px;
+    background: currentColor;
+    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+  }
+
+  .hamburger-line-premium:nth-child(1) {
+    width: 100%;
+  }
+
+  .hamburger-line-premium:nth-child(2) {
+    width: 75%;
+    margin-left: auto;
+  }
+
+  .hamburger-line-premium:nth-child(3) {
+    width: 60%;
+    margin-left: auto;
+  }
+
+  .mobile-nav-link-premium {
+    display: block;
+    text-decoration: none;
+    color: var(--color-neutral-700);
+    border-radius: 1rem;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 0.25rem;
+  }
+
+  .mobile-nav-content {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    gap: 1rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .mobile-nav-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.75rem;
+    background: linear-gradient(
+      135deg,
+      rgba(7, 213, 128, 0.1),
+      rgba(4, 124, 70, 0.08)
+    );
+    color: #07d580;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(7, 213, 128, 0.1);
+  }
+
+  .mobile-nav-text {
+    flex: 1;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .mobile-nav-arrow {
+    color: var(--color-neutral-400);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0.6;
+    transform: translateX(-8px);
+  }
+
+  .mobile-nav-link-premium:hover {
+    color: #047c46;
+    background: linear-gradient(
+      135deg,
+      rgba(245, 252, 248, 0.8),
+      rgba(255, 255, 255, 0.9)
+    );
+    box-shadow: 0 4px 12px rgba(7, 213, 128, 0.1);
+  }
+
+  .mobile-nav-link-premium:hover .mobile-nav-icon {
+    background: linear-gradient(135deg, #07d580, #047c46);
+    color: white;
+    transform: scale(1.05);
+    border-color: rgba(7, 213, 128, 0.3);
+    box-shadow: 0 4px 8px rgba(7, 213, 128, 0.2);
+  }
+
+  .mobile-nav-link-premium:hover .mobile-nav-arrow {
+    opacity: 1;
+    transform: translateX(0);
+    color: #07d580;
+  }
+
+  .mobile-nav-link-premium:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+
+  /* Enhanced mobile menu container styling */
+  .mobile-menu-backdrop {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .mobile-menu-container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25),
+      0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+
+  /* RTL Support for mobile navigation */
+  [dir="rtl"] .mobile-nav-content {
+    flex-direction: row-reverse;
+  }
+
+  [dir="rtl"] .mobile-nav-arrow {
+    transform: translateX(8px);
+  }
+
+  [dir="rtl"] .mobile-nav-link-premium:hover .mobile-nav-arrow {
+    transform: translateX(0);
+  }
+
   /* Service Card Specialized */
   .service-card {
     background: white;
@@ -962,5 +1102,63 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* Mobile Navigation Animations */
+@keyframes backgroundShift {
+  from {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInStagger {
+  from {
+    opacity: 0;
+    transform: translateY(60px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(7, 213, 128, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(7, 213, 128, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(7, 213, 128, 0);
+  }
+}
+
+@keyframes floatEffect {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
   }
 }
