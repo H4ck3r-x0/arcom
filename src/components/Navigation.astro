@@ -8,10 +8,10 @@ const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 ---
 
-<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white/90 backdrop-blur-xl border-b border-white/30 shadow-lg">
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white/80 backdrop-blur-2xl border-b border-gradient shadow-sm">
   <div class="container-custom">
-    <div class="flex items-center justify-between h-20">
-            <!-- Logo & Brand -->
+    <div class="flex items-center justify-between h-24 py-2">
+      <!-- Logo & Brand -->
       <div class="flex items-center">
         <a href={`/${lang}/`} class="logo-container">
           <Logo 
@@ -24,144 +24,33 @@ const t = useTranslations(lang)
       </div>
 
       <!-- Desktop Navigation -->
-      <div class="hidden lg:flex items-center space-x-8 rtl:space-x-reverse">
-        <a href={`/${lang}/`} class="nav-link">{t('nav.home')}</a>
-        <a href={`/${lang}/#about`} class="nav-link">{t('nav.about')}</a>
-        
-        <!-- Services Mega Menu -->
-        <div class="relative group">
-          <button class="nav-link flex items-center space-x-1 rtl:space-x-reverse">
-            <span>{t('nav.services')}</span>
-            <svg class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-            </svg>
-          </button>
-          
-          <!-- Mega Menu Dropdown -->
-          <div class="absolute top-full left-1/2 transform -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-            <div class="bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/30 p-8 w-[800px] max-w-[90vw]">
-              <!-- Decorative header -->
-              <div class="text-center mb-8">
-                <h3 class="text-2xl font-bold bg-gradient-to-r from-[#047C46] to-[#07D580] bg-clip-text text-transparent mb-2">
-                  {t('services.title')}
-                </h3>
-                <div class="w-20 h-1 bg-gradient-to-r from-[#07D580] to-[#047C46] rounded-full mx-auto"></div>
-              </div>
-              
-              <!-- Services Grid -->
-              <div class="grid grid-cols-2 gap-6">
-                <!-- Operations & Maintenance -->
-                <a href={`/${lang}/#services`} class="service-card group">
-                  <div class="flex items-start space-x-4 rtl:space-x-reverse">
-                    <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#07D580] to-[#71F5E6] rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                      </svg>
-                    </div>
-                    <div class="flex-1">
-                      <h4 class="font-semibold text-neutral-800 mb-1 group-hover:text-[#047C46] transition-colors">
-                        {t('services.operations.title')}
-                      </h4>
-                      <p class="text-sm text-neutral-600 line-clamp-2">
-                        {t('services.operations.description')}
-                      </p>
-                    </div>
-                  </div>
-                </a>
-
-                <!-- Hospitality & Events -->
-                <a href={`/${lang}/#services`} class="service-card group">
-                  <div class="flex items-start space-x-4 rtl:space-x-reverse">
-                    <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#71D9F5] to-[#71AFF5] rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0A2.704 2.704 0 003 15.546V6.454c.523 0 1.046-.151 1.5-.454a2.704 2.704 0 013 0 2.704 2.704 0 003 0 2.704 2.704 0 013 0 2.704 2.704 0 003 0 2.704 2.704 0 013 0c.454.303.977.454 1.5.454v9.092z"/>
-                      </svg>
-                    </div>
-                    <div class="flex-1">
-                      <h4 class="font-semibold text-neutral-800 mb-1 group-hover:text-[#047C46] transition-colors">
-                        {t('services.hospitality.title')}
-                      </h4>
-                      <p class="text-sm text-neutral-600 line-clamp-2">
-                        {t('services.hospitality.description')}
-                      </p>
-                    </div>
-                  </div>
-                </a>
-
-                <!-- Housekeeping -->
-                <a href={`/${lang}/#services`} class="service-card group">
-                  <div class="flex items-start space-x-4 rtl:space-x-reverse">
-                    <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#71F58C] to-[#07D580] rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                      </svg>
-                    </div>
-                    <div class="flex-1">
-                      <h4 class="font-semibold text-neutral-800 mb-1 group-hover:text-[#047C46] transition-colors">
-                        {t('services.housekeeping.title')}
-                      </h4>
-                      <p class="text-sm text-neutral-600 line-clamp-2">
-                        {t('services.housekeeping.description')}
-                      </p>
-                    </div>
-                  </div>
-                </a>
-
-                <!-- Airport Services -->
-                <a href={`/${lang}/#services`} class="service-card group">
-                  <div class="flex items-start space-x-4 rtl:space-x-reverse">
-                    <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#71AFF5] to-[#71D9F5] rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
-                      </svg>
-                    </div>
-                    <div class="flex-1">
-                      <h4 class="font-semibold text-neutral-800 mb-1 group-hover:text-[#047C46] transition-colors">
-                        {t('services.airport.title')}
-                      </h4>
-                      <p class="text-sm text-neutral-600 line-clamp-2">
-                        {t('services.airport.description')}
-                      </p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              
-              <!-- View All Services CTA -->
-              <div class="text-center mt-8 pt-6 border-t border-neutral-200">
-                <a href={`/${lang}/#services`} class="inline-flex items-center space-x-2 rtl:space-x-reverse text-[#047C46] hover:text-[#07D580] font-semibold transition-colors group">
-                  <span>{lang === 'ar' ? 'عرض جميع الخدمات' : 'View All Services'}</span>
-                  <svg class="w-4 h-4 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <a href={`/${lang}/#contact`} class="nav-link">{t('nav.contact')}</a>
+      <div class="hidden lg:flex items-center space-x-1 rtl:space-x-reverse">
+        <a href={`/${lang}/`} class="nav-link-enhanced">{t('nav.home')}</a>
+        <a href={`/${lang}/#about`} class="nav-link-enhanced">{t('nav.about')}</a>
+        <a href={`/${lang}/#services`} class="nav-link-enhanced">{t('nav.services')}</a>
+        <a href={`/${lang}/#contact`} class="nav-link-enhanced">{t('nav.contact')}</a>
       </div>
 
       <!-- Right Side Actions -->
-      <div class="flex items-center space-x-4 rtl:space-x-reverse">
+      <div class="flex items-center space-x-6 rtl:space-x-reverse">
         <!-- Enhanced Language Switcher -->
         <div class="hidden md:block">
-        <LanguageSwitcher client:load />
+          <LanguageSwitcher client:load />
         </div>
         
         <!-- Premium CTA Button -->
-        <a href={`/${lang}/#contact`} class="btn-premium hidden sm:inline-flex">
-          <span>{t('hero.cta.primary')}</span>
-          <svg class="w-4 h-4 ml-2 rtl:ml-0 rtl:mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
-          </svg>
+        <a href={`/${lang}/#contact`} class="btn-premium-enhanced group hidden sm:inline-flex">
+          <span class="relative z-10">{t('hero.cta.primary')}</span>
+          <div class="btn-icon">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+            </svg>
+          </div>
         </a>
         
         <!-- Enhanced Mobile Menu Button -->
-        <button id="mobile-menu-button" class="lg:hidden p-2 rounded-xl text-neutral-700 hover:text-[#047C46] hover:bg-[#F5FCF8] transition-all duration-300">
-          <div class="hamburger-icon">
+        <button id="mobile-menu-button" class="lg:hidden p-3 rounded-2xl text-neutral-700 hover:text-[#047C46] hover:bg-[#F5FCF8]/80 backdrop-blur-sm border border-white/30 transition-all duration-300 shadow-lg hover:shadow-xl">
+          <div class="hamburger-enhanced">
             <span></span>
             <span></span>
             <span></span>
@@ -190,39 +79,12 @@ const t = useTranslations(lang)
           <span>{t('nav.about')}</span>
         </a>
         
-        <!-- Mobile Services Expandable -->
-        <div class="mobile-services-group">
-          <button id="mobile-services-toggle" class="mobile-nav-link w-full justify-between">
-            <div class="flex items-center space-x-3 rtl:space-x-reverse">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 7a2 2 0 012-2h10a2 2 0 012 2v2M7 7h10"/>
-              </svg>
-              <span>{t('nav.services')}</span>
-            </div>
-            <svg class="w-4 h-4 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-            </svg>
-          </button>
-          
-          <div id="mobile-services-menu" class="ml-8 rtl:mr-8 rtl:ml-0 space-y-1 overflow-hidden max-h-0 transition-all duration-300">
-            <a href={`/${lang}/#services`} class="mobile-sub-link">
-              <span class="w-2 h-2 bg-[#07D580] rounded-full"></span>
-              <span>{t('services.operations.title')}</span>
-            </a>
-            <a href={`/${lang}/#services`} class="mobile-sub-link">
-              <span class="w-2 h-2 bg-[#71D9F5] rounded-full"></span>
-              <span>{t('services.hospitality.title')}</span>
-            </a>
-            <a href={`/${lang}/#services`} class="mobile-sub-link">
-              <span class="w-2 h-2 bg-[#71F58C] rounded-full"></span>
-              <span>{t('services.housekeeping.title')}</span>
-            </a>
-            <a href={`/${lang}/#services`} class="mobile-sub-link">
-              <span class="w-2 h-2 bg-[#71AFF5] rounded-full"></span>
-              <span>{t('services.airport.title')}</span>
-            </a>
-          </div>
-        </div>
+        <a href={`/${lang}/#services`} class="mobile-nav-link">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 7a2 2 0 012-2h10a2 2 0 012 2v2M7 7h10"/>
+          </svg>
+          <span>{t('nav.services')}</span>
+        </a>
         
         <a href={`/${lang}/#contact`} class="mobile-nav-link">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -257,8 +119,6 @@ const navbar = document.getElementById('navbar');
 const mobileMenuButton = document.getElementById('mobile-menu-button');
 const mobileMenu = document.getElementById('mobile-menu');
 const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-const mobileServicesToggle = document.getElementById('mobile-services-toggle');
-const mobileServicesMenu = document.getElementById('mobile-services-menu');
 
 // Enhanced scroll effects
 let lastScrollY = window.scrollY;
@@ -270,11 +130,11 @@ function updateNavbar() {
   if (navbar) {
     // Dynamic background based on scroll
     if (currentScrollY > 20) {
-      navbar.classList.remove('bg-white/90');
-      navbar.classList.add('bg-white/95', 'shadow-2xl', 'border-white/50');
+      navbar.classList.remove('bg-white/80');
+      navbar.classList.add('bg-white/90', 'shadow-2xl', 'border-gradient');
     } else {
-      navbar.classList.remove('bg-white/95', 'shadow-2xl', 'border-white/50');
-      navbar.classList.add('bg-white/90');
+      navbar.classList.remove('bg-white/90', 'shadow-2xl', 'border-gradient');
+      navbar.classList.add('bg-white/80');
     }
     
     // Smart hide/show behavior
@@ -318,30 +178,14 @@ if (mobileMenuButton && mobileMenu) {
   });
 }
 
-// Mobile services submenu toggle
-if (mobileServicesToggle && mobileServicesMenu) {
-  mobileServicesToggle.addEventListener('click', (e) => {
-    e.preventDefault();
-    const isExpanded = mobileServicesMenu.style.maxHeight && mobileServicesMenu.style.maxHeight !== '0px';
-    
-    if (isExpanded) {
-      mobileServicesMenu.style.maxHeight = '0px';
-      mobileServicesToggle.querySelector('svg:last-child').style.transform = 'rotate(0deg)';
-    } else {
-      mobileServicesMenu.style.maxHeight = mobileServicesMenu.scrollHeight + 'px';
-      mobileServicesToggle.querySelector('svg:last-child').style.transform = 'rotate(180deg)';
-    }
-  });
-}
-
 // Close mobile menu on link clicks with smooth animation
 mobileNavLinks.forEach(link => {
   link.addEventListener('click', () => {
     if (mobileMenu) {
       setTimeout(() => {
-      mobileMenu.classList.add('translate-x-full');
+        mobileMenu.classList.add('translate-x-full');
         mobileMenuButton?.classList.remove('active');
-      document.body.classList.remove('overflow-hidden');
+        document.body.classList.remove('overflow-hidden');
       }, 100);
     }
   });
@@ -349,7 +193,8 @@ mobileNavLinks.forEach(link => {
 
 // Enhanced outside click handling
 document.addEventListener('click', (e) => {
-  if (mobileMenu && !mobileMenu.contains(e.target) && !mobileMenuButton?.contains(e.target)) {
+  const target = e.target as HTMLElement;
+  if (mobileMenu && !mobileMenu.contains(target) && !mobileMenuButton?.contains(target)) {
     mobileMenu.classList.add('translate-x-full');
     mobileMenuButton?.classList.remove('active');
     document.body.classList.remove('overflow-hidden');
@@ -357,7 +202,7 @@ document.addEventListener('click', (e) => {
 });
 
 // Smooth scrolling with offset for fixed navbar
-document.querySelectorAll('a[href*="#"]').forEach(anchor => {
+document.querySelectorAll('a[href*="#"]').forEach((anchor: HTMLAnchorElement) => {
   anchor.addEventListener('click', function (e) {
     const href = this.getAttribute('href');
     if (href && href.includes('#')) {
@@ -368,7 +213,7 @@ document.querySelectorAll('a[href*="#"]').forEach(anchor => {
         e.preventDefault();
         const target = document.querySelector(hash);
         if (target) {
-          const offsetTop = target.offsetTop - 100;
+          const offsetTop = target.getBoundingClientRect().top + window.pageYOffset - 100;
           window.scrollTo({
             top: offsetTop,
             behavior: 'smooth'
@@ -411,7 +256,7 @@ document.querySelectorAll('section[id]').forEach(section => {
 </script>
 
 <style>
-/* Premium Brand Colors - Using Arcom's exact palette */
+/* Enhanced Brand Colors & Design System */
 :root {
   --arcom-mint: #07D580;
   --arcom-deep-green: #047C46;
@@ -421,125 +266,116 @@ document.querySelectorAll('section[id]').forEach(section => {
   --arcom-lime: #71F58C;
   --arcom-cool-blue: #71AFF5;
   --arcom-off-white: #F5FCF8;
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --shadow-premium: 0 20px 40px -12px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 32px 64px -12px rgba(0, 0, 0, 0.12);
 }
 
-/* Enhanced Navbar Styling */
+/* Enhanced Navbar with Modern Glassmorphism */
 #navbar {
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
-  border-image: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent) 1;
+  -webkit-backdrop-filter: blur(32px);
+  backdrop-filter: blur(32px);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(245, 252, 248, 0.9));
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-premium);
 }
 
-/* Premium Logo Animation */
-.logo-container:hover .w-12 {
-  box-shadow: 0 20px 40px rgba(7, 213, 128, 0.3);
+/* Simple Logo Container */
+.logo-container {
+  display: inline-block;
+  transition: all 0.3s ease;
 }
 
-/* Enhanced Navigation Links */
-.nav-link {
+.logo-container:hover {
+  transform: scale(1.05);
+}
+
+/* Modern Navigation Links */
+.nav-link-enhanced {
   position: relative;
   font-weight: 600;
-  color: #404040;
-  transition: all 0.3s ease;
-  padding: 0.5rem 1rem;
-  border-radius: 0.75rem;
+  font-size: 1rem;
+  color: #525252;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0.875rem 1.5rem;
+  border-radius: 1rem;
   overflow: hidden;
+  background: transparent;
+  border: 1px solid transparent;
 }
 
-.nav-link:hover {
-  color: #047C46;
+.nav-link-enhanced:hover {
+  color: var(--arcom-deep-green);
+  background: linear-gradient(135deg, var(--arcom-off-white), rgba(255, 255, 255, 0.9));
+  border-color: rgba(7, 213, 128, 0.2);
+  box-shadow: 0 8px 25px -8px rgba(7, 213, 128, 0.15);
+  transform: translateY(-1px);
 }
 
-.nav-link::before {
+.nav-link-enhanced::before {
   content: '';
   position: absolute;
   bottom: 0;
   left: 50%;
   width: 0;
-  height: 2px;
+  height: 3px;
   background: linear-gradient(90deg, var(--arcom-mint), var(--arcom-deep-green));
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   transform: translateX(-50%);
-  border-radius: 2px;
+  border-radius: 3px;
 }
 
-.nav-link:hover::before,
-.nav-link.active::before {
-  width: 80%;
+.nav-link-enhanced:hover::before,
+.nav-link-enhanced.active::before {
+  width: 60%;
 }
 
-.nav-link::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(45deg, var(--arcom-off-white), transparent);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  border-radius: 12px;
-  z-index: -1;
-}
-
-.nav-link:hover::after {
-  opacity: 0.7;
-}
-
-/* Premium CTA Button */
-.btn-premium {
+/* Enhanced Premium CTA Button */
+.btn-premium-enhanced {
   display: inline-flex;
   align-items: center;
-  padding: 0.75rem 1.5rem;
-  font-weight: 600;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  font-weight: 700;
+  font-size: 0.95rem;
   color: white;
-  border-radius: 0.75rem;
-  transition: all 0.3s ease;
-  transform: scale(1);
+  border-radius: 1.25rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   background: linear-gradient(135deg, var(--arcom-mint), var(--arcom-deep-green));
-  box-shadow: 0 8px 25px rgba(7, 213, 128, 0.3);
+  box-shadow: 0 12px 30px -8px rgba(7, 213, 128, 0.4);
   position: relative;
   overflow: hidden;
+  border: 2px solid transparent;
 }
 
-.btn-premium:hover {
-  transform: scale(1.05);
+.btn-premium-enhanced:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px -8px rgba(7, 213, 128, 0.5);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
-.btn-premium::before {
+.btn-premium-enhanced::before {
   content: '';
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
   transition: left 0.6s ease;
 }
 
-.btn-premium:hover::before {
+.btn-premium-enhanced:hover::before {
   left: 100%;
 }
 
-.btn-premium:hover {
-  box-shadow: 0 15px 35px rgba(7, 213, 128, 0.4);
-}
-
-/* Service Cards in Mega Menu */
-.service-card {
-  display: block;
-  padding: 1rem;
-  border-radius: 0.75rem;
-  border: 1px solid transparent;
+.btn-icon {
   transition: all 0.3s ease;
-  background: linear-gradient(135deg, rgba(245, 252, 248, 0.5), rgba(255, 255, 255, 0.8));
 }
 
-.service-card:hover {
-  border-color: rgba(7, 213, 128, 0.2);
-  background-color: #F5FCF8;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-  transform: translateY(-2px);
+.btn-premium-enhanced:hover .btn-icon {
+  transform: translateX(2px);
 }
 
 /* Enhanced Mobile Menu */
@@ -582,24 +418,8 @@ document.querySelectorAll('section[id]').forEach(section => {
   border-right: 3px solid var(--arcom-mint);
 }
 
-/* Mobile Sub Links */
-.mobile-sub-link {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  color: #525252;
-  padding: 0.75rem 1rem;
-  border-radius: 0.5rem;
-  transition: all 0.3s ease;
-}
-
-.mobile-sub-link:hover {
-  color: #047C46;
-  background-color: rgba(255, 255, 255, 0.7);
-}
-
 /* Enhanced Hamburger Icon */
-.hamburger-icon {
+.hamburger-enhanced {
   width: 1.5rem;
   height: 1.5rem;
   display: flex;
@@ -609,7 +429,7 @@ document.querySelectorAll('section[id]').forEach(section => {
   gap: 0.25rem;
 }
 
-.hamburger-icon span {
+.hamburger-enhanced span {
   width: 1.5rem;
   height: 0.125rem;
   background-color: currentColor;
@@ -617,15 +437,15 @@ document.querySelectorAll('section[id]').forEach(section => {
   transform-origin: center;
 }
 
-#mobile-menu-button.active .hamburger-icon span:nth-child(1) {
+#mobile-menu-button.active .hamburger-enhanced span:nth-child(1) {
   transform: rotate(45deg) translate(2px, 2px);
 }
 
-#mobile-menu-button.active .hamburger-icon span:nth-child(2) {
+#mobile-menu-button.active .hamburger-enhanced span:nth-child(2) {
   opacity: 0;
 }
 
-#mobile-menu-button.active .hamburger-icon span:nth-child(3) {
+#mobile-menu-button.active .hamburger-enhanced span:nth-child(3) {
   transform: rotate(-45deg) translate(2px, -2px);
 }
 
@@ -675,11 +495,8 @@ document.querySelectorAll('section[id]').forEach(section => {
   }
 }
 
-/* Line clamp utility */
-.line-clamp-2 {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+/* Enhanced Border Gradient */
+.border-gradient {
+  border-image: linear-gradient(90deg, transparent, rgba(7, 213, 128, 0.3), transparent) 1;
 }
 </style> 
