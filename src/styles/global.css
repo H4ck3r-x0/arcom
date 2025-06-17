@@ -934,34 +934,6 @@
   }
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--color-neutral-100);
-  border-radius: 100px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(
-    180deg,
-    var(--color-primary-500) 0%,
-    var(--color-primary-600) 100%
-  );
-  border-radius: 100px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(
-    180deg,
-    var(--color-primary-600) 0%,
-    var(--color-primary-700) 100%
-  );
-}
-
 /* Print styles */
 @media print {
   .no-print {

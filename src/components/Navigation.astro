@@ -8,495 +8,682 @@ const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 ---
 
-<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white/80 backdrop-blur-2xl border-b border-gradient shadow-sm">
+<nav 
+  id="navbar" 
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out bg-white/90 backdrop-blur-xl border-b border-neutral-200/60"
+  role="navigation" 
+  aria-label={lang === 'ar' ? 'التنقل الرئيسي' : 'Main navigation'}
+>
+  <!-- Navigation progress indicator -->
+  <div id="nav-progress" class="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#07D580] to-[#047C46] transition-all duration-300 ease-out" style="width: 0%"></div>
+  
   <div class="container-custom">
-    <div class="flex items-center justify-between h-24 py-2">
-      <!-- Logo & Brand -->
-      <div class="flex items-center">
-        <a href={`/${lang}/`} class="logo-container">
+    <div class="flex items-center justify-between h-20">
+      <!-- Logo & Brand with enhanced animation -->
+      <div class="flex items-center group">
+        <a 
+          href={`/${lang}/`} 
+          class=""
+          aria-label={lang === 'ar' ? 'الصفحة الرئيسية - أركوم' : 'Home - Arcom'}
+        >
           <Logo 
             variant="green"
-            size="xl"
+            size="lg"
             showText={false}
             lang={lang}
           />
+          <!-- Subtle glow effect -->
+          <div class="absolute inset-0 bg-gradient-to-r from-[#07D580]/0 via-[#07D580]/5 to-[#07D580]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"></div>
         </a>
       </div>
 
-      <!-- Desktop Navigation -->
-      <div class="hidden lg:flex items-center space-x-1 rtl:space-x-reverse">
-        <a href={`/${lang}/`} class="nav-link-enhanced">{t('nav.home')}</a>
-        <a href={`/${lang}/#about`} class="nav-link-enhanced">{t('nav.about')}</a>
-        <a href={`/${lang}/#services`} class="nav-link-enhanced">{t('nav.services')}</a>
-        <a href={`/${lang}/#contact`} class="nav-link-enhanced">{t('nav.contact')}</a>
-      </div>
-
-      <!-- Right Side Actions -->
-      <div class="flex items-center space-x-6 rtl:space-x-reverse">
+      <!-- Desktop Navigation with advanced interactions -->
+      <div class="hidden lg:flex items-center">
+        <nav class="flex items-center space-x-1 rtl:space-x-reverse" role="menubar">
+          <a 
+            href={`/${lang}/`} 
+            class="nav-link-premium" 
+            role="menuitem"
+            data-nav="home"
+          >
+            <span class="nav-text">{t('nav.home')}</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a 
+            href={`/${lang}/#about`} 
+            class="nav-link-premium" 
+            role="menuitem"
+            data-nav="about"
+          >
+            <span class="nav-text">{t('nav.about')}</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a 
+            href={`/${lang}/#services`} 
+            class="nav-link-premium" 
+            role="menuitem"
+            data-nav="services"
+          >
+            <span class="nav-text">{t('nav.services')}</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a 
+            href={`/${lang}/#contact`} 
+            class="nav-link-premium" 
+            role="menuitem"
+            data-nav="contact"
+          >
+            <span class="nav-text">{t('nav.contact')}</span>
+            <div class="nav-indicator"></div>
+          </a>
+        </nav>
+        
         <!-- Enhanced Language Switcher -->
-        <div class="hidden md:block">
-          <LanguageSwitcher client:load />
+        <div class="ml-8 rtl:ml-0 rtl:mr-8 pl-8 rtl:pl-0 rtl:pr-8 border-l rtl:border-l-0 rtl:border-r border-neutral-300/60">
+          <div class="relative">
+            <LanguageSwitcher client:load />
+          </div>
         </div>
-        
-        <!-- Premium CTA Button -->
-        <a href={`/${lang}/#contact`} class="btn-premium-enhanced group hidden sm:inline-flex">
-          <span class="relative z-10">{t('hero.cta.primary')}</span>
-          <div class="btn-icon">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
-            </svg>
-          </div>
-        </a>
-        
-        <!-- Enhanced Mobile Menu Button -->
-        <button id="mobile-menu-button" class="lg:hidden p-3 rounded-2xl text-neutral-700 hover:text-[#047C46] hover:bg-[#F5FCF8]/80 backdrop-blur-sm border border-white/30 transition-all duration-300 shadow-lg hover:shadow-xl">
-          <div class="hamburger-enhanced">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </button>
       </div>
+
+      <!-- Premium Mobile Menu Button -->
+      <button 
+        id="mobile-menu-button" 
+        class="lg:hidden relative p-3 rounded-2xl text-neutral-700 hover:text-[#047C46] transition-all duration-300 hover:bg-[#F5FCF8]/80 hover:shadow-lg hover:shadow-[#07D580]/10 focus:outline-none focus:ring-2 focus:ring-[#07D580] focus:ring-offset-2 group"
+        aria-label={lang === 'ar' ? 'فتح قائمة التنقل' : 'Open navigation menu'}
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <div class="hamburger-premium">
+          <span class="hamburger-line-premium"></span>
+          <span class="hamburger-line-premium"></span>
+          <span class="hamburger-line-premium"></span>
+        </div>
+        <!-- Ripple effect -->
+        <div class="absolute inset-0 rounded-2xl bg-[#07D580]/10 scale-0 group-active:scale-100 transition-transform duration-200"></div>
+      </button>
     </div>
   </div>
 
-  <!-- Enhanced Mobile Menu -->
-  <div id="mobile-menu" class="lg:hidden fixed inset-0 top-20 bg-white/95 backdrop-blur-xl transform translate-x-full transition-all duration-500 ease-out z-40">
-    <div class="flex flex-col h-full">
-      <!-- Navigation Links -->
-      <div class="flex-1 px-6 py-8 space-y-1">
-        <a href={`/${lang}/`} class="mobile-nav-link">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
-          </svg>
-          <span>{t('nav.home')}</span>
-        </a>
-        
-        <a href={`/${lang}/#about`} class="mobile-nav-link">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-          </svg>
-          <span>{t('nav.about')}</span>
-        </a>
-        
-        <a href={`/${lang}/#services`} class="mobile-nav-link">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 7a2 2 0 012-2h10a2 2 0 012 2v2M7 7h10"/>
-          </svg>
-          <span>{t('nav.services')}</span>
-        </a>
-        
-        <a href={`/${lang}/#contact`} class="mobile-nav-link">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-          </svg>
-          <span>{t('nav.contact')}</span>
-        </a>
-      </div>
+  <!-- Premium Mobile Menu -->
+  <div 
+    id="mobile-menu" 
+    class="lg:hidden fixed inset-0 top-20 bg-white/95 backdrop-blur-2xl transform translate-x-full transition-all duration-500 ease-out z-40"
+    role="dialog"
+    aria-modal="true"
+    aria-label={lang === 'ar' ? 'قائمة التنقل' : 'Navigation menu'}
+  >
+    <!-- Overlay animation -->
+    <div class="absolute inset-0 bg-gradient-to-br from-[#F5FCF8]/50 to-white/90"></div>
+    
+    <div class="relative flex flex-col h-full">
+      <!-- Navigation Links with staggered animation -->
+      <nav class="flex-1 px-6 py-8" role="menu">
+        <div class="space-y-2">
+          <a 
+            href={`/${lang}/`} 
+            class="mobile-nav-link-premium stagger-1" 
+            role="menuitem"
+            tabindex="-1"
+          >
+            <div class="mobile-nav-content">
+              <div class="mobile-nav-icon">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                </svg>
+              </div>
+              <span class="mobile-nav-text">{t('nav.home')}</span>
+              <div class="mobile-nav-arrow">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </div>
+          </a>
+          
+          <a 
+            href={`/${lang}/#about`} 
+            class="mobile-nav-link-premium stagger-2" 
+            role="menuitem"
+            tabindex="-1"
+          >
+            <div class="mobile-nav-content">
+              <div class="mobile-nav-icon">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <span class="mobile-nav-text">{t('nav.about')}</span>
+              <div class="mobile-nav-arrow">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </div>
+          </a>
+          
+          <a 
+            href={`/${lang}/#services`} 
+            class="mobile-nav-link-premium stagger-3" 
+            role="menuitem"
+            tabindex="-1"
+          >
+            <div class="mobile-nav-content">
+              <div class="mobile-nav-icon">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 7a2 2 0 012-2h10a2 2 0 012 2v2M7 7h10"/>
+                </svg>
+              </div>
+              <span class="mobile-nav-text">{t('nav.services')}</span>
+              <div class="mobile-nav-arrow">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </div>
+          </a>
+          
+          <a 
+            href={`/${lang}/#contact`} 
+            class="mobile-nav-link-premium stagger-4" 
+            role="menuitem"
+            tabindex="-1"
+          >
+            <div class="mobile-nav-content">
+              <div class="mobile-nav-icon">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <span class="mobile-nav-text">{t('nav.contact')}</span>
+              <div class="mobile-nav-arrow">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </div>
+          </a>
+        </div>
+      </nav>
       
-      <!-- Mobile Bottom Actions -->
-      <div class="px-6 py-6 border-t border-neutral-200 space-y-4">
-        <!-- Mobile Language Switcher -->
-        <div class="md:hidden">
+      <!-- Enhanced Mobile Language Switcher -->
+      <div class="px-6 py-6 border-t border-neutral-200/80 bg-gradient-to-r from-[#F5FCF8]/30 to-white/50">
+        <div class="stagger-5">
           <LanguageSwitcher client:load />
         </div>
-        
-        <!-- Mobile CTA -->
-        <a href={`/${lang}/#contact`} class="btn-premium w-full justify-center">
-          <span>{t('hero.cta.primary')}</span>
-          <svg class="w-4 h-4 ml-2 rtl:ml-0 rtl:mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
-          </svg>
-        </a>
       </div>
     </div>
   </div>
 </nav>
 
 <script>
-// Enhanced Navigation Scripts
-const navbar = document.getElementById('navbar');
-const mobileMenuButton = document.getElementById('mobile-menu-button');
-const mobileMenu = document.getElementById('mobile-menu');
-const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-
-// Enhanced scroll effects
-let lastScrollY = window.scrollY;
-let isScrolling = false;
-
-function updateNavbar() {
-  const currentScrollY = window.scrollY;
-  
-  if (navbar) {
-    // Dynamic background based on scroll
-    if (currentScrollY > 20) {
-      navbar.classList.remove('bg-white/80');
-      navbar.classList.add('bg-white/90', 'shadow-2xl', 'border-gradient');
-    } else {
-      navbar.classList.remove('bg-white/90', 'shadow-2xl', 'border-gradient');
-      navbar.classList.add('bg-white/80');
-    }
+// Premium Navigation System
+class PremiumNavigation {
+  constructor() {
+    this.navbar = document.getElementById('navbar');
+    this.mobileMenuButton = document.getElementById('mobile-menu-button');
+    this.mobileMenu = document.getElementById('mobile-menu');
+    this.mobileNavLinks = document.querySelectorAll('.mobile-nav-link-premium');
+    this.hamburgerLines = document.querySelectorAll('.hamburger-line-premium');
+    this.progressBar = document.getElementById('nav-progress');
+    this.navLinks = document.querySelectorAll('.nav-link-premium');
     
-    // Smart hide/show behavior
-    if (currentScrollY > lastScrollY && currentScrollY > 100) {
-      navbar.style.transform = 'translateY(-100%)';
-    } else {
-      navbar.style.transform = 'translateY(0)';
-    }
+    this.lastScrollY = window.scrollY;
+    this.isScrolling = false;
+    this.isMenuOpen = false;
+    
+    this.init();
   }
   
-  lastScrollY = currentScrollY;
-  isScrolling = false;
-}
-
-// Optimized scroll handler with requestAnimationFrame
-function handleScroll() {
-  if (!isScrolling) {
-    requestAnimationFrame(updateNavbar);
-    isScrolling = true;
+  init() {
+    this.setupScrollEffects();
+    this.setupMobileMenu();
+    this.setupKeyboardNavigation();
+    this.setupActiveStates();
+    this.setupProgressBar();
+    this.setupSmoothScrolling();
   }
-}
-
-window.addEventListener('scroll', handleScroll, { passive: true });
-
-// Enhanced mobile menu with animations
-if (mobileMenuButton && mobileMenu) {
-  mobileMenuButton.addEventListener('click', () => {
-    const isOpen = !mobileMenu.classList.contains('translate-x-full');
-    
-    if (isOpen) {
-      // Close menu
-      mobileMenu.classList.add('translate-x-full');
-      mobileMenuButton.classList.remove('active');
-      document.body.classList.remove('overflow-hidden');
-    } else {
-      // Open menu
-      mobileMenu.classList.remove('translate-x-full');
-      mobileMenuButton.classList.add('active');
-      document.body.classList.add('overflow-hidden');
-    }
-  });
-}
-
-// Close mobile menu on link clicks with smooth animation
-mobileNavLinks.forEach(link => {
-  link.addEventListener('click', () => {
-    if (mobileMenu) {
-      setTimeout(() => {
-        mobileMenu.classList.add('translate-x-full');
-        mobileMenuButton?.classList.remove('active');
-        document.body.classList.remove('overflow-hidden');
-      }, 100);
-    }
-  });
-});
-
-// Enhanced outside click handling
-document.addEventListener('click', (e) => {
-  const target = e.target as HTMLElement;
-  if (mobileMenu && !mobileMenu.contains(target) && !mobileMenuButton?.contains(target)) {
-    mobileMenu.classList.add('translate-x-full');
-    mobileMenuButton?.classList.remove('active');
-    document.body.classList.remove('overflow-hidden');
-  }
-});
-
-// Smooth scrolling with offset for fixed navbar
-document.querySelectorAll('a[href*="#"]').forEach((anchor: HTMLAnchorElement) => {
-  anchor.addEventListener('click', function (e) {
-    const href = this.getAttribute('href');
-    if (href && href.includes('#')) {
-      const hashIndex = href.indexOf('#');
-      const hash = href.substring(hashIndex);
+  
+  setupScrollEffects() {
+    const updateNavbar = () => {
+      const currentScrollY = window.scrollY;
+      const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
       
-      if (hash && hash !== '#') {
-        e.preventDefault();
-        const target = document.querySelector(hash);
-        if (target) {
-          const offsetTop = target.getBoundingClientRect().top + window.pageYOffset - 100;
-          window.scrollTo({
-            top: offsetTop,
-            behavior: 'smooth'
-          });
+      if (this.navbar) {
+        // Enhanced glassmorphism effect
+        if (currentScrollY > 20) {
+          this.navbar.classList.remove('bg-white/90', 'border-neutral-200/60');
+          this.navbar.classList.add('bg-white/95', 'border-neutral-300/80', 'shadow-2xl', 'shadow-[#07D580]/5');
+        } else {
+          this.navbar.classList.remove('bg-white/95', 'border-neutral-300/80', 'shadow-2xl', 'shadow-[#07D580]/5');
+          this.navbar.classList.add('bg-white/90', 'border-neutral-200/60');
+        }
+        
+        // Intelligent hide/show with momentum
+        const scrollDelta = currentScrollY - this.lastScrollY;
+        if (Math.abs(scrollDelta) > 5) {
+          if (currentScrollY > this.lastScrollY && currentScrollY > 200 && !this.isMenuOpen) {
+            this.navbar.style.transform = 'translateY(-100%)';
+          } else {
+            this.navbar.style.transform = 'translateY(0)';
+          }
         }
       }
-    }
-  });
-});
-
-// Initialize navbar state
-updateNavbar();
-
-// Enhanced intersection observer for active nav links
-const observerOptions = {
-  root: null,
-  rootMargin: '-20% 0px -35% 0px',
-  threshold: 0
-};
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const id = entry.target.id;
-      // Update active nav link styling if needed
-      document.querySelectorAll('.nav-link').forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href')?.includes(`#${id}`)) {
-          link.classList.add('active');
-        }
+      
+      this.lastScrollY = currentScrollY;
+      this.isScrolling = false;
+    };
+    
+    const handleScroll = () => {
+      if (!this.isScrolling) {
+        requestAnimationFrame(updateNavbar);
+        this.isScrolling = true;
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+  }
+  
+  setupProgressBar() {
+    const updateProgress = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      
+      if (this.progressBar) {
+        this.progressBar.style.width = `${Math.min(scrollPercent, 100)}%`;
+      }
+    };
+    
+    window.addEventListener('scroll', updateProgress, { passive: true });
+  }
+  
+  setupMobileMenu() {
+    if (this.mobileMenuButton && this.mobileMenu) {
+      this.mobileMenuButton.addEventListener('click', () => {
+        this.toggleMobileMenu();
       });
     }
-  });
-}, observerOptions);
+    
+    // Close menu on link clicks
+    this.mobileNavLinks.forEach((link, index) => {
+      link.addEventListener('click', () => {
+        setTimeout(() => this.closeMobileMenu(), 150);
+      });
+    });
+    
+    // Outside click handler
+    document.addEventListener('click', (e) => {
+      if (this.isMenuOpen && 
+          !this.mobileMenu.contains(e.target) && 
+          !this.mobileMenuButton.contains(e.target)) {
+        this.closeMobileMenu();
+      }
+    });
+  }
+  
+  toggleMobileMenu() {
+    if (this.isMenuOpen) {
+      this.closeMobileMenu();
+    } else {
+      this.openMobileMenu();
+    }
+  }
+  
+  openMobileMenu() {
+    this.isMenuOpen = true;
+    this.mobileMenu.classList.remove('translate-x-full');
+    this.mobileMenuButton.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('overflow-hidden');
+    
+    // Animate hamburger to X
+    this.hamburgerLines[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
+    this.hamburgerLines[1].style.opacity = '0';
+    this.hamburgerLines[2].style.transform = 'rotate(-45deg) translate(6px, -6px)';
+    
+    // Stagger animation for menu items
+    this.mobileNavLinks.forEach((link, index) => {
+      link.style.opacity = '0';
+      link.style.transform = 'translateX(30px)';
+      setTimeout(() => {
+        link.style.opacity = '1';
+        link.style.transform = 'translateX(0)';
+        link.setAttribute('tabindex', '0');
+      }, 100 + (index * 80));
+    });
+  }
+  
+  closeMobileMenu() {
+    this.isMenuOpen = false;
+    this.mobileMenu.classList.add('translate-x-full');
+    this.mobileMenuButton.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('overflow-hidden');
+    
+    // Reset hamburger
+    this.hamburgerLines[0].style.transform = 'none';
+    this.hamburgerLines[1].style.opacity = '1';
+    this.hamburgerLines[2].style.transform = 'none';
+    
+    // Reset menu items
+    this.mobileNavLinks.forEach(link => {
+      link.setAttribute('tabindex', '-1');
+    });
+  }
+  
+  setupKeyboardNavigation() {
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && this.isMenuOpen) {
+        this.closeMobileMenu();
+        this.mobileMenuButton.focus();
+      }
+      
+      // Tab trapping in mobile menu
+      if (this.isMenuOpen && e.key === 'Tab') {
+        const focusableElements = this.mobileMenu.querySelectorAll('a, button, [tabindex="0"]');
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+        
+        if (e.shiftKey && document.activeElement === firstElement) {
+          e.preventDefault();
+          lastElement.focus();
+        } else if (!e.shiftKey && document.activeElement === lastElement) {
+          e.preventDefault();
+          firstElement.focus();
+        }
+      }
+    });
+  }
+  
+  setupActiveStates() {
+    // Enhanced active state detection
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -35% 0px',
+      threshold: 0.1
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          this.updateActiveNavLink(id);
+        }
+      });
+    }, observerOptions);
+    
+    document.querySelectorAll('section[id]').forEach(section => {
+      observer.observe(section);
+    });
+  }
+  
+  updateActiveNavLink(activeId) {
+    this.navLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      link.classList.remove('active');
+      
+      if (href && href.includes(`#${activeId}`)) {
+        link.classList.add('active');
+      }
+    });
+  }
+  
+  setupSmoothScrolling() {
+    document.querySelectorAll('a[href*="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href && href.includes('#')) {
+          const hashIndex = href.indexOf('#');
+          const hash = href.substring(hashIndex);
+          
+          if (hash && hash !== '#') {
+            e.preventDefault();
+            const target = document.querySelector(hash);
+            if (target) {
+              const offsetTop = target.getBoundingClientRect().top + window.pageYOffset - 100;
+              window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+              });
+            }
+          }
+        }
+      });
+    });
+  }
+}
 
-// Observe sections
-document.querySelectorAll('section[id]').forEach(section => {
-  observer.observe(section);
+// Initialize when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+  new PremiumNavigation();
 });
 </script>
 
 <style>
-/* Enhanced Brand Colors & Design System */
-:root {
-  --arcom-mint: #07D580;
-  --arcom-deep-green: #047C46;
-  --arcom-light-white: #FAFAFA;
-  --arcom-sky-blue: #71D9F5;
-  --arcom-aqua-mint: #71F5E6;
-  --arcom-lime: #71F58C;
-  --arcom-cool-blue: #71AFF5;
-  --arcom-off-white: #F5FCF8;
-  --glass-bg: rgba(255, 255, 255, 0.8);
-  --glass-border: rgba(255, 255, 255, 0.3);
-  --shadow-premium: 0 20px 40px -12px rgba(0, 0, 0, 0.08);
-  --shadow-hover: 0 32px 64px -12px rgba(0, 0, 0, 0.12);
-}
-
-/* Enhanced Navbar with Modern Glassmorphism */
-#navbar {
-  -webkit-backdrop-filter: blur(32px);
-  backdrop-filter: blur(32px);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(245, 252, 248, 0.9));
-  border-bottom: 1px solid var(--glass-border);
-  box-shadow: var(--shadow-premium);
-}
-
-/* Simple Logo Container */
-.logo-container {
-  display: inline-block;
-  transition: all 0.3s ease;
-}
-
-.logo-container:hover {
-  transform: scale(1.05);
-}
-
-/* Modern Navigation Links */
-.nav-link-enhanced {
-  position: relative;
-  font-weight: 600;
-  font-size: 1rem;
-  color: #525252;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  padding: 0.875rem 1.5rem;
-  border-radius: 1rem;
-  overflow: hidden;
-  background: transparent;
-  border: 1px solid transparent;
-}
-
-.nav-link-enhanced:hover {
-  color: var(--arcom-deep-green);
-  background: linear-gradient(135deg, var(--arcom-off-white), rgba(255, 255, 255, 0.9));
-  border-color: rgba(7, 213, 128, 0.2);
-  box-shadow: 0 8px 25px -8px rgba(7, 213, 128, 0.15);
-  transform: translateY(-1px);
-}
-
-.nav-link-enhanced::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--arcom-mint), var(--arcom-deep-green));
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  transform: translateX(-50%);
-  border-radius: 3px;
-}
-
-.nav-link-enhanced:hover::before,
-.nav-link-enhanced.active::before {
-  width: 60%;
-}
-
-/* Enhanced Premium CTA Button */
-.btn-premium-enhanced {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 1rem 2rem;
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: white;
-  border-radius: 1.25rem;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  background: linear-gradient(135deg, var(--arcom-mint), var(--arcom-deep-green));
-  box-shadow: 0 12px 30px -8px rgba(7, 213, 128, 0.4);
-  position: relative;
-  overflow: hidden;
-  border: 2px solid transparent;
-}
-
-.btn-premium-enhanced:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 20px 40px -8px rgba(7, 213, 128, 0.5);
-  border-color: rgba(255, 255, 255, 0.3);
-}
-
-.btn-premium-enhanced::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
-  transition: left 0.6s ease;
-}
-
-.btn-premium-enhanced:hover::before {
-  left: 100%;
-}
-
-.btn-icon {
-  transition: all 0.3s ease;
-}
-
-.btn-premium-enhanced:hover .btn-icon {
-  transform: translateX(2px);
-}
-
-/* Enhanced Mobile Menu */
-#mobile-menu {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(245, 252, 248, 0.95));
-}
-
-/* Mobile Navigation Links */
-.mobile-nav-link {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-size: 1.125rem;
-  font-weight: 500;
-  color: #404040;
-  padding: 1rem;
-  border-radius: 0.75rem;
-  transition: all 0.3s ease;
-  border-bottom: 1px solid #f5f5f5;
-  position: relative;
-}
-
-.mobile-nav-link:hover {
-  color: #047C46;
-  background-color: #F5FCF8;
-}
-
-[dir="rtl"] .mobile-nav-link {
-  gap: 0.75rem;
-}
-
-.mobile-nav-link:hover {
-  transform: translateX(8px);
-  border-left: 3px solid var(--arcom-mint);
-}
-
-[dir="rtl"] .mobile-nav-link:hover {
-  transform: translateX(-8px);
-  border-left: none;
-  border-right: 3px solid var(--arcom-mint);
-}
-
-/* Enhanced Hamburger Icon */
-.hamburger-enhanced {
-  width: 1.5rem;
-  height: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 0.25rem;
-}
-
-.hamburger-enhanced span {
-  width: 1.5rem;
-  height: 0.125rem;
-  background-color: currentColor;
-  transition: all 0.3s ease;
-  transform-origin: center;
-}
-
-#mobile-menu-button.active .hamburger-enhanced span:nth-child(1) {
-  transform: rotate(45deg) translate(2px, 2px);
-}
-
-#mobile-menu-button.active .hamburger-enhanced span:nth-child(2) {
-  opacity: 0;
-}
-
-#mobile-menu-button.active .hamburger-enhanced span:nth-child(3) {
-  transform: rotate(-45deg) translate(2px, -2px);
-}
-
-/* RTL Support */
-[dir="rtl"] .nav-link:hover {
-  transform: translateX(-4px);
-}
-
-[dir="ltr"] .nav-link:hover {
-  transform: translateX(4px);
-}
-
-/* Loading Animation */
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
-}
-
-.loading {
-  animation: pulse 2s infinite;
-}
-
-/* Accessibility Improvements */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    transition-duration: 0.01ms !important;
-    animation-duration: 0.01ms !important;
-  }
-}
-
-/* Focus Styles */
-.nav-link:focus,
-.btn-premium:focus,
-.mobile-nav-link:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px #07D580, 0 0 0 4px white;
-}
-
-/* High Contrast Mode */
-@media (prefers-contrast: high) {
-  .nav-link {
-    border: 1px solid currentColor;
+  /* Premium Navigation Styles - Arcom Excellence */
+  
+  /* Desktop Navigation Links */
+  .nav-link-premium {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--color-neutral-700);
+    text-decoration: none;
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
   }
   
-  .btn-premium {
-    border: 2px solid white;
+  .nav-link-premium:hover,
+  .nav-link-premium.active {
+    color: #047C46;
+    background: linear-gradient(135deg, #F5FCF8/80, rgba(255, 255, 255, 0.9));
+    box-shadow: 0 8px 25px -8px rgba(7, 213, 128, 0.15);
+    transform: translateY(-1px);
   }
-}
-
-/* Enhanced Border Gradient */
-.border-gradient {
-  border-image: linear-gradient(90deg, transparent, rgba(7, 213, 128, 0.3), transparent) 1;
-}
+  
+  .nav-text {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .nav-indicator {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #07D580, #047C46);
+    border-radius: 3px;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(-50%);
+  }
+  
+  .nav-link-premium:hover .nav-indicator,
+  .nav-link-premium.active .nav-indicator {
+    width: 60%;
+  }
+  
+  /* Premium shimmer effect */
+  .nav-link-premium::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s ease;
+  }
+  
+  .nav-link-premium:hover::before {
+    left: 100%;
+  }
+  
+  /* Mobile Navigation Links */
+  .mobile-nav-link-premium {
+    display: block;
+    opacity: 0;
+    transform: translateX(30px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    color: var(--color-neutral-700);
+    border-radius: 1rem;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .mobile-nav-content {
+    display: flex;
+    align-items: center;
+    padding: 1.25rem 1rem;
+    gap: 1rem;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .mobile-nav-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.75rem;
+    background: linear-gradient(135deg, #07D580/10, #047C46/10);
+    color: #07D580;
+    transition: all 0.3s ease;
+  }
+  
+  .mobile-nav-text {
+    flex: 1;
+    font-weight: 500;
+    font-size: 1rem;
+  }
+  
+  .mobile-nav-arrow {
+    color: var(--color-neutral-400);
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  
+  .mobile-nav-link-premium:hover {
+    color: #047C46;
+    background: linear-gradient(135deg, #F5FCF8/60, rgba(255, 255, 255, 0.8));
+  }
+  
+  .mobile-nav-link-premium:hover .mobile-nav-icon {
+    background: linear-gradient(135deg, #07D580, #047C46);
+    color: white;
+    transform: scale(1.1) rotate(5deg);
+  }
+  
+  .mobile-nav-link-premium:hover .mobile-nav-arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .mobile-nav-link-premium:active {
+    transform: scale(0.98);
+  }
+  
+  /* Premium Hamburger Animation */
+  .hamburger-premium {
+    width: 24px;
+    height: 18px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .hamburger-line-premium {
+    width: 100%;
+    height: 2.5px;
+    background: currentColor;
+    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+  }
+  
+  .hamburger-line-premium:nth-child(1) {
+    width: 100%;
+  }
+  
+  .hamburger-line-premium:nth-child(2) {
+    width: 75%;
+    margin-left: auto;
+  }
+  
+  .hamburger-line-premium:nth-child(3) {
+    width: 60%;
+    margin-left: auto;
+  }
+  
+  #mobile-menu-button:hover .hamburger-line-premium {
+    width: 100%;
+  }
+  
+  /* Stagger Animations */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.18s; }
+  .stagger-3 { animation-delay: 0.26s; }
+  .stagger-4 { animation-delay: 0.34s; }
+  .stagger-5 { animation-delay: 0.42s; }
+  
+  /* Enhanced Focus States */
+  .nav-link-premium:focus-visible,
+  .mobile-nav-link-premium:focus-visible {
+    outline: 2px solid #07D580;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(7, 213, 128, 0.2);
+  }
+  
+  /* Premium Loading States */
+  @keyframes navPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+  
+  .nav-loading {
+    animation: navPulse 2s infinite;
+  }
+  
+  /* RTL Enhancements */
+  [dir="rtl"] .nav-indicator {
+    right: 50%;
+    left: auto;
+    transform: translateX(50%);
+  }
+  
+  [dir="rtl"] .mobile-nav-arrow {
+    transform: rotate(180deg) translateX(-10px);
+  }
+  
+  [dir="rtl"] .mobile-nav-link-premium:hover .mobile-nav-arrow {
+    transform: rotate(180deg) translateX(0);
+  }
+  
+  /* Reduced Motion Support */
+  @media (prefers-reduced-motion: reduce) {
+    .nav-link-premium,
+    .mobile-nav-link-premium,
+    .hamburger-line-premium {
+      transition-duration: 0.01ms !important;
+    }
+    
+    .nav-link-premium::before {
+      display: none;
+    }
+  }
+  
+  /* High Contrast Mode */
+  @media (prefers-contrast: high) {
+    .nav-link-premium,
+    .mobile-nav-link-premium {
+      border: 1px solid currentColor;
+    }
+  }
 </style> 
