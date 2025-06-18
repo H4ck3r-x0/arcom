@@ -10,45 +10,33 @@ const t = useTranslations(lang);
 ---
 
 <!-- REVOLUTIONARY FORTUNE 500 HERO SECTION -->
-<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-black isolate pt-24 md:pt-28 lg:pt-24">
+<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-black isolate pt-28">
   <!-- CINEMATIC BACKGROUND SYSTEM -->
   <div class="absolute inset-0 -z-10">
-    <!-- Ultra-Premium Base Gradient - ARCOM Brand Colors -->
-    <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-[#047C46] to-black"></div>
-    
-    <!-- Advanced Mesh Gradient Network - ARCOM Colors -->
-    <div class="absolute inset-0 bg-gradient-to-tr from-[#047C46]/40 via-transparent to-[#71D9F5]/20"></div>
-    <div class="absolute inset-0 bg-gradient-to-bl from-[#71AFF5]/15 via-transparent to-[#07D580]/30"></div>
-    <div class="absolute inset-0 bg-radial-gradient from-[#07D580]/15 via-transparent to-[#047C46]/60"></div>
-    
-
-    
-    <!-- Authentic ARCOM Brand Pattern - Based on Brand Guidelines -->
-    <div class="absolute inset-0 opacity-8">
+    <!-- Ultra-Premium Base Gradient - ARCOM Brand Colors (softened) -->
+    <div class="absolute inset-0 bg-gradient-to-br from-slate-900/80 via-[#047C46]/70 to-black/80"></div>
+    <!-- Advanced Mesh Gradient Network - ARCOM Colors (reduced opacity) -->
+    <div class="absolute inset-0 bg-gradient-to-tr from-[#047C46]/20 via-transparent to-[#71D9F5]/10"></div>
+    <div class="absolute inset-0 bg-gradient-to-bl from-[#71AFF5]/10 via-transparent to-[#07D580]/10"></div>
+    <div class="absolute inset-0 bg-radial-gradient from-[#07D580]/10 via-transparent to-[#047C46]/30"></div>
+    <!-- Authentic ARCOM Brand Pattern - More Subtle -->
+    <div class="absolute inset-0 opacity-4">
       <svg class="w-full h-full" viewBox="0 0 1200 1000" preserveAspectRatio="xMidYMid slice">
         <defs>
-          <!-- Authentic ARCOM Chevron Pattern - Organic Scatter -->
           <pattern id="arcomAuthentic" x="0" y="0" width="180" height="180" patternUnits="userSpaceOnUse">
-            <!-- Row 1 - Mixed sizes and colors -->
-            <path d="M30 25 L40 15 L50 25 L40 35 Z" fill="#047C46" opacity="0.4" transform="rotate(0 40 25)"/>
-            <path d="M85 30 L95 20 L105 30 L95 40 Z" fill="#0A7C4A" opacity="0.45" transform="rotate(0 95 30)"/>
-            <path d="M140 20 L150 10 L160 20 L150 30 Z" fill="#ffffff" opacity="0.15" transform="rotate(0 150 20)"/>
-            
-            <!-- Row 2 - Varied positioning -->
-            <path d="M15 70 L25 60 L35 70 L25 80 Z" fill="#07D580" opacity="0.35" transform="rotate(0 25 70)"/>
-            <path d="M70 75 L82 63 L94 75 L82 87 Z" fill="#047C46" opacity="0.5" transform="rotate(0 82 75)"/>
-            <path d="M125 65 L135 55 L145 65 L135 75 Z" fill="#ffffff" opacity="0.2" transform="rotate(0 135 65)"/>
-            <path d="M165 80 L173 72 L181 80 L173 88 Z" fill="#0A8B52" opacity="0.3" transform="rotate(0 173 80)"/>
-            
-            <!-- Row 3 - More organic spread -->
-            <path d="M45 115 L55 105 L65 115 L55 125 Z" fill="#07D580" opacity="0.4" transform="rotate(0 55 115)"/>
-            <path d="M100 120 L110 110 L120 120 L110 130 Z" fill="#047C46" opacity="0.45" transform="rotate(0 110 120)"/>
-            <path d="M5 125 L13 117 L21 125 L13 133 Z" fill="#ffffff" opacity="0.25" transform="rotate(0 13 125)"/>
-            
-            <!-- Row 4 - Bottom scatter -->
-            <path d="M25 160 L35 150 L45 160 L35 170 Z" fill="#0A7C4A" opacity="0.4" transform="rotate(0 35 160)"/>
-            <path d="M80 155 L90 145 L100 155 L90 165 Z" fill="#ffffff" opacity="0.18" transform="rotate(0 90 155)"/>
-            <path d="M135 165 L145 155 L155 165 L145 175 Z" fill="#07D580" opacity="0.35" transform="rotate(0 145 165)"/>
+            <path d="M30 25 L40 15 L50 25 L40 35 Z" fill="#047C46" opacity="0.2"/>
+            <path d="M85 30 L95 20 L105 30 L95 40 Z" fill="#0A7C4A" opacity="0.18"/>
+            <path d="M140 20 L150 10 L160 20 L150 30 Z" fill="#ffffff" opacity="0.07"/>
+            <path d="M15 70 L25 60 L35 70 L25 80 Z" fill="#07D580" opacity="0.12"/>
+            <path d="M70 75 L82 63 L94 75 L82 87 Z" fill="#047C46" opacity="0.18"/>
+            <path d="M125 65 L135 55 L145 65 L135 75 Z" fill="#ffffff" opacity="0.08"/>
+            <path d="M165 80 L173 72 L181 80 L173 88 Z" fill="#0A8B52" opacity="0.10"/>
+            <path d="M45 115 L55 105 L65 115 L55 125 Z" fill="#07D580" opacity="0.13"/>
+            <path d="M100 120 L110 110 L120 120 L110 130 Z" fill="#047C46" opacity="0.15"/>
+            <path d="M5 125 L13 117 L21 125 L13 133 Z" fill="#ffffff" opacity="0.06"/>
+            <path d="M25 160 L35 150 L45 160 L35 170 Z" fill="#0A7C4A" opacity="0.10"/>
+            <path d="M80 155 L90 145 L100 155 L90 165 Z" fill="#ffffff" opacity="0.05"/>
+            <path d="M135 165 L145 155 L155 165 L145 175 Z" fill="#07D580" opacity="0.10"/>
           </pattern>
           
           <!-- Subtle Background Chevrons -->
@@ -66,65 +54,30 @@ const t = useTranslations(lang);
       </svg>
     </div>
     
-
-    
-    <!-- Cinematic Overlay System -->
-    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-    <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50"></div>
-    <div class="absolute inset-0 bg-radial-gradient from-transparent via-transparent to-black/80"></div>
+    <!-- Cinematic Overlay System (softened) -->
+    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40"></div>
+    <div class="absolute inset-0 bg-radial-gradient from-transparent via-transparent to-black/60"></div>
   </div>
 
   <!-- PREMIUM CONTENT SYSTEM -->
-  <div class="relative container-custom text-center text-white" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
-    
-    <!-- Fortune 500 Brand Messaging - ARCOM Colors -->
-    <div class="mb-8 space-y-4">
-      <h1 class={`hero-title-enterprise motion-element ${lang === 'ar' ? 'font-arabic' : 'font-archivo'}`} data-motion="hero-title">
-        <span class={`block font-extrabold leading-tight mb-3 bg-gradient-to-r from-[#F5FCF8] via-[#71F5E6] to-[#71D9F5] bg-clip-text text-transparent motion-element ${lang === 'ar' ? 'text-3xl md:text-5xl lg:text-6xl' : 'text-4xl md:text-6xl lg:text-7xl'}`} data-motion="main-title">
-          {lang === 'ar' ? 'أركوم' : 'ARCOM'}
-        </span>
-        <span class={`block font-medium bg-gradient-to-r from-[#07D580] to-[#71D9F5] bg-clip-text text-transparent motion-element ${lang === 'ar' ? 'text-base md:text-lg lg:text-xl leading-relaxed' : 'text-lg md:text-xl lg:text-2xl'}`} data-motion="subtitle">
-          {lang === 'ar' ? 'الشركة العربية المعتمدة لإدارة المرافق' : 'The Accredited Arabian Company'}
-        </span>
-        <span class={`block font-normal text-[#F5FCF8]/90 motion-element ${lang === 'ar' ? 'text-sm md:text-base lg:text-lg' : 'text-sm md:text-base lg:text-lg'}`} data-motion="tagline">
-          {lang === 'ar' ? 'لإدارة المرافق' : 'for Facilities Management'}
-        </span>
+  <div class="relative container-custom flex-1 flex flex-col items-center justify-center text-center text-white" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
+    <div class="mb-10 md:mb-14 space-y-5 md:space-y-7">
+      <h1 class={`hero-title-enterprise animate-hero-fade text-5xl md:text-7xl font-extrabold leading-tight drop-shadow-xl ${lang === 'ar' ? 'font-arabic' : 'font-archivo'}`} style="text-shadow:0 4px 24px rgba(7,213,128,0.18),0 2px 8px rgba(0,0,0,0.18);">
+        <span class="block mb-2">{lang === 'ar' ? 'أركوم' : 'ARCOM'}</span>
+        <span class="block text-2xl md:text-3xl font-semibold text-[#F5FCF8] opacity-90">{lang === 'ar' ? 'الشركة العربية المعتمدة لإدارة المرافق' : 'The Accredited Arabian Company'}</span>
+        <p class={`text-[#F5FCF8]/80 max-w-3xl mx-auto leading-relaxed ${lang === 'ar' ? 'text-sm md:text-base lg:text-lg font-arabic' : 'text-base md:text-lg lg:text-xl'}`}>{lang === 'ar' ? 'حلول متطورة ومتكاملة تعزز الكفاءة التشغيلية والاستدامة البيئية' : 'Advanced integrated solutions enhancing operational efficiency and environmental sustainability'}</p>
+  
       </h1>
-      
-      <!-- Premium Divider - ARCOM Colors -->
-      <div class="flex justify-center pt-2">
-        <div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-[#07D580] to-transparent rounded-full shadow-lg shadow-[#07D580]/50 motion-element" data-motion="divider"></div>
-      </div>
     </div>
-
-    <!-- Executive Value Proposition - ARCOM Colors -->
-    <div class="mb-10 motion-element" data-motion="value-prop">
-      <p class={`font-semibold text-transparent bg-gradient-to-r from-[#71F5E6] to-[#71D9F5] bg-clip-text max-w-4xl mx-auto leading-relaxed mb-4 ${lang === 'ar' ? 'text-lg md:text-xl lg:text-2xl font-arabic' : 'text-xl md:text-2xl lg:text-3xl'}`}>
-        {lang === 'ar' ? 'شريك التميز في إدارة المرافق' : 'Excellence Partners in Facilities Management'}
-      </p>
-      <p class={`text-[#F5FCF8]/80 max-w-3xl mx-auto leading-relaxed ${lang === 'ar' ? 'text-sm md:text-base lg:text-lg font-arabic' : 'text-base md:text-lg lg:text-xl'}`}>
-        {lang === 'ar' ? 
-          'حلول متطورة ومتكاملة تعزز الكفاءة التشغيلية والاستدامة البيئية' : 
-          'Advanced integrated solutions enhancing operational efficiency and environmental sustainability'
-        }
-      </p>
-    </div>
-
-    <!-- Premium Executive CTAs - ARCOM Colors -->
-    <div class="mb-12 motion-element" data-motion="ctas">
-      <div class={`flex gap-4 justify-center items-center ${lang === 'ar' ? 'flex-col sm:flex-row-reverse' : 'flex-col sm:flex-row'}`}>
-        <!-- Premium Primary CTA -->
-        <a href={`/${lang}/#contact`} class={`enterprise-cta-primary group motion-button ${lang === 'ar' ? 'font-arabic' : ''}`} data-motion="primary-cta">
-          <span class="relative z-10 font-bold">
-            {lang === 'ar' ? 'ابدأ شراكتك معنا' : 'Start Your Partnership'}
-          </span>
-        </a>
-        
-        <!-- Secondary Executive CTA -->
-        <a href={`/${lang}/#services`} class={`enterprise-cta-secondary group motion-button ${lang === 'ar' ? 'font-arabic' : ''}`} data-motion="secondary-cta">
-          <span class="font-semibold">{lang === 'ar' ? 'استكشف حلولنا المتطورة' : 'Explore Our Solutions'}</span>
-        </a>
-      </div>
+ 
+    <div class="flex flex-col sm:flex-row gap-6 justify-center mb-10 animate-hero-fade" style="animation-delay:0.3s;">
+      <a href={`/${lang}/#contact`} class="hero-btn hero-btn-primary font-bold text-lg px-8 py-4">
+        {lang === 'ar' ? 'ابدأ شراكتك معنا' : 'Start Your Partnership'}
+      </a>
+      <a href={`/${lang}/#services`} class="hero-btn hero-btn-secondary font-bold text-lg px-8 py-4">
+        {lang === 'ar' ? 'استكشف حلولنا المتطورة' : 'Explore Our Solutions'}
+      </a>
     </div>
 
     <!-- Premium Corporate Statistics - ARCOM Colors -->
@@ -461,6 +414,18 @@ const t = useTranslations(lang);
   .stat-icon-enterprise,
   .stat-number-enterprise {
     transition: all 0.3s ease-out;
+  }
+
+  @keyframes heroFadeInUp {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  .animate-hero-fade {
+    opacity: 0;
+    animation: heroFadeInUp 0.8s cubic-bezier(0.4,0,0.2,1) forwards;
+  }
+  .hero-title-enterprise {
+    text-shadow: 0 4px 24px rgba(7,213,128,0.18),0 2px 8px rgba(0,0,0,0.18);
   }
 </style>
 

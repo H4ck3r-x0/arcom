@@ -1,0 +1,76 @@
+---
+interface Props {
+  lang: 'ar' | 'en';
+}
+
+const { lang } = Astro.props;
+const isRTL = lang === 'ar';
+
+const partners = [
+  { src: '/images/partners/partner-01.png', alt: { en: 'Partner 1', ar: 'شريك 1' } },
+  { src: '/images/partners/partner-02.png', alt: { en: 'Partner 2', ar: 'شريك 2' } },
+  { src: '/images/partners/partner-03.png', alt: { en: 'Partner 3', ar: 'شريك 3' } },
+  { src: '/images/partners/partner-04.png', alt: { en: 'Partner 4', ar: 'شريك 4' } },
+  { src: '/images/partners/partner-05.png', alt: { en: 'Partner 5', ar: 'شريك 5' } },
+  { src: '/images/partners/partner-06.png', alt: { en: 'Partner 6', ar: 'شريك 6' } },
+  { src: '/images/partners/partner-07.png', alt: { en: 'Partner 7', ar: 'شريك 7' } },
+  { src: '/images/partners/partner-08.png', alt: { en: 'Partner 8', ar: 'شريك 8' } },
+  { src: '/images/partners/partner-09.png', alt: { en: 'Partner 9', ar: 'شريك 9' } },
+  { src: '/images/partners/partner-10.png', alt: { en: 'Partner 10', ar: 'شريك 10' } },
+  { src: '/images/partners/partner-11.png', alt: { en: 'Partner 11', ar: 'شريك 11' } },
+  { src: '/images/partners/partner-12.png', alt: { en: 'Partner 12', ar: 'شريك 12' } },
+];
+
+const sectionTitle = {
+  en: {
+    headline: 'Success Partners',
+    sub: 'Proud collaborations with industry leaders',
+  },
+  ar: {
+    headline: ['شركاء', 'النجـــــــاح'],
+    sub: 'شراكات نفخر بها مع رواد القطاعات',
+  },
+};
+---
+
+<section id="partners" class="min-h-screen flex flex-col justify-center bg-gradient-to-b from-[#F5FCF8]/60 to-white" aria-labelledby="partners-title" role="region">
+  <div class="container-custom flex-1 flex flex-col justify-center mx-auto px-6 lg:px-8 py-8 md:py-12">
+    <!-- Section Header -->
+    <div class={`text-center mt-8 md:mt-16 mb-2 md:mb-4 ${isRTL ? 'rtl' : 'ltr'}`}>
+      {lang === 'ar' ? (
+        <h2 id="partners-title" class={`block text-xl md:text-6xl lg:text-7xl xl:text-8xl font-bold bg-gradient-to-r from-[#047C46] to-[#07D580] bg-clip-text text-transparent mb-2 font-arabic`}>
+          {sectionTitle.ar.headline[0]}&nbsp;{sectionTitle.ar.headline[1]}
+        </h2>
+      ) : (
+        <h2 id="partners-title" class={`block text-xl md:text-6xl lg:text-7xl xl:text-8xl font-bold bg-gradient-to-r from-[#047C46] to-[#07D580] bg-clip-text text-transparent mb-2 font-archivo`}>
+          {sectionTitle.en.headline}
+        </h2>
+      )}
+      <p class="text-lg md:text-xl text-neutral-600 font-medium">{sectionTitle[lang].sub}</p>
+    </div>
+    <!-- Partner Logo Grid -->
+    <div class="flex-1 flex items-center justify-center">
+      <div class="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-8">
+        {partners.map((partner, idx) => (
+          <div class="group flex items-center justify-center p-3 md:p-4 bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 border border-neutral-100 hover:border-[#07D580]/40 focus-within:ring-2 focus-within:ring-[#07D580]" tabindex="0" aria-label={partner.alt[lang]}>
+            <img 
+              src={partner.src} 
+              alt={partner.alt[lang]} 
+              class="h-14 md:h-20 max-w-full object-contain grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-300 ease-in-out" 
+              loading="lazy"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .rtl {
+    direction: rtl;
+  }
+  .ltr {
+    direction: ltr;
+  }
+</style> 

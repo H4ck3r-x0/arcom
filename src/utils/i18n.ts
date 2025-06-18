@@ -27,6 +27,7 @@ export const translations = {
     "nav.about": "من نحن",
     "nav.services": "خدماتنا",
     "nav.contact": "اتصل بنا",
+    "nav.partners": "شركاء النجاح",
     "nav.language": "اللغة",
 
     // Hero Section
@@ -110,6 +111,7 @@ export const translations = {
     "nav.about": "About",
     "nav.services": "Services",
     "nav.contact": "Contact",
+    "nav.partners": "Partners",
     "nav.language": "Language",
 
     // Hero Section

@@ -3,6 +3,8 @@ import Layout from '../../layouts/Layout.astro'
 import Navigation from '../../components/Navigation.astro'
 import Hero from '../../components/Hero.astro'
 import AboutUs from '../../components/AboutUs.astro'
+import Services from '../../components/Services.astro'
+import Partners from '../../components/Partners.astro'
 import { useTranslations } from '../../utils/i18n'
 
 const lang = 'ar'
@@ -24,4 +26,9 @@ const description = t('common.tagline', currentLang)
 	
 	<!-- About Us Section -->
 	<AboutUs lang={currentLang} />
+	
+	<!-- Services Section -->
+	<Services lang={currentLang} />
+	<!-- Partners Section -->
+	<Partners lang={currentLang} />
 </Layout>

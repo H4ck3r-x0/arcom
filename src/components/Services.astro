@@ -1,0 +1,435 @@
+---
+interface Props {
+  lang: 'ar' | 'en'
+}
+
+const { lang } = Astro.props
+const isRTL = lang === 'ar'
+
+// Service data with proper bilingual content
+const services = [
+  {
+    id: 'airport',
+    icon: `<svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 16h20l-2-7H9l-2 7z"/>
+      <path d="M6.5 8h11"/>
+      <path d="M5.5 11h13"/>    
+      <path d="M13 4.5c1.25-1.75 3.5-1.75 4.75 0"/>
+    </svg>`,
+    title: {
+      ar: 'خدمات المطارات',
+      en: 'Airport Services'
+    },
+    description: {
+      ar: 'راحة وأمان للمسافرين',
+      en: 'Comfort and safety for travelers'
+    }
+  },
+  {
+    id: 'hospitality',
+    icon: `<svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 17h18" />
+      <path d="M4 17V15a8 8 0 0 1 16 0v2" />
+      <path d="M12 9v-1" />
+      <circle cx="12" cy="3" r="1" />
+    </svg>`,
+    title: {
+      ar: 'خدمات الضيافة',
+      en: 'Hospitality Services'
+    },
+    description: {
+      ar: 'بيئة صحية بكل المقاييس',
+      en: 'Healthy environment by all standards'
+    }
+  },
+  {
+    id: 'hospitality-events',
+    icon: `<svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="4" width="18" height="18" rx="2" />
+      <path d="M16 2v4" />
+      <path d="M8 2v4" />
+      <path d="M3 10h18" />
+      <polygon points="12,15 13,17.5 15.5,18 13.75,19.5 14.5,22 12,20.5 9.5,22 10.25,19.5 8.5,18 11,17.5" />
+    </svg>`,
+    title: {
+      ar: 'الضيافة وإدارة الفعاليات',
+      en: 'Hospitality & Event Management'
+    },
+    description: {
+      ar: 'فن استقبال الضيوف بأناقة',
+      en: 'Art of welcoming guests with elegance'
+    }
+  },
+  {
+    id: 'maintenance',
+    icon: `<svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 2l2 7h6l-4.5 7.5L17 21h-5l-2-5H4l4.5-7.5L7 3h5z"/>
+      <circle cx="12" cy="13" r="3"/>
+    </svg>`,
+    title: {
+      ar: 'الصيانة والتشغيل',
+      en: 'Maintenance & Operations'
+    },
+    description: {
+      ar: 'إدارة ذكية ومراقبة شاملة',
+      en: 'Smart management and comprehensive monitoring'
+    }
+  },
+  {
+    id: 'pest-control',
+    icon: `<svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="8" y="8" width="8" height="8" rx="4" />
+      <path d="M19 8v8" />
+      <path d="M5 8v8" />
+      <path d="M12 4v4" />
+      <path d="M4 4l4 4" />
+      <path d="M20 4l-4 4" />
+      <path d="M4 20l4-4" />
+      <path d="M20 20l-4-4" />
+    </svg>`,
+    title: {
+      ar: 'مكافحة الآفات',
+      en: 'Pest Control'
+    },
+    description: {
+      ar: 'حماية مستدامة للمرافق',
+      en: 'Sustainable protection for facilities'
+    }
+  },
+  {
+    id: 'renovations',
+    icon: `<svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="7" width="15" height="5" rx="2.5" />
+      <path d="M17 9.5V12a2 2 0 0 1-2 2h-3" />
+      <path d="M14 14v4a2 2 0 0 1-2 2h-1" />
+    </svg>`,
+    title: {
+      ar: 'الترميمات والتجديدات',
+      en: 'Renovations & Updates'
+    },
+    description: {
+      ar: 'إحياء المباني بروح جديدة',
+      en: 'Revitalizing buildings with new spirit'
+    }
+  },
+  {
+    id: 'comprehensive-care',
+    icon: `<svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9 11H3v5a2 2 0 0 0 2 2h6"/>
+      <path d="M11 20a2 2 0 0 1-2-2v-1a2 2 0 0 1 2-2h2"/>
+      <path d="M16 8h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2v4l-4-4H9a1.99 1.99 0 0 1-2-2v-8"/>
+      <path d="M3 8V6a2 2 0 0 1 2-2h6m0 0V2l4 4-4 4"/>
+    </svg>`,
+    title: {
+      ar: 'الصيانة المنزلية الشاملة',
+      en: 'Comprehensive Home Care'
+    },
+    description: {
+      ar: 'رعاية خاصة لكل زاوية',
+      en: 'Special care for every corner'
+    }
+  },
+  {
+    id: 'landscaping',
+    icon: `<svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"/>
+      <path d="M8 14S9.5 16 12 16S16 14 16 14"/>
+      <line x1="9" y1="9" x2="9.01" y2="9"/>
+      <line x1="15" y1="9" x2="15.01" y2="9"/>
+    </svg>`,
+    title: {
+      ar: 'البستنة وتنسيق الحدائق',
+      en: 'Landscaping & Gardens'
+    },
+    description: {
+      ar: 'لمسة جمالية بطابع مستدام',
+      en: 'Beautiful touch with sustainable character'
+    }
+  }
+]
+
+const sectionTitle = {
+  ar: {
+    line1: 'خدماتنا',
+    intro: 'نقدم مجموعة متكاملة من الخدمات المتميزة لتلبية جميع احتياجاتكم.'
+  },
+  en: {
+    line1: 'Our Services',
+    intro: 'We offer a comprehensive suite of premium services to meet all your needs.'
+  }
+}
+---
+
+<section id="services" class="services-section fit-screen" aria-labelledby="services-title" role="region">
+  <div class="container-custom services-container fit-screen-container">
+    <!-- Section Header - About Us Style -->
+    <div class={`services-header aboutus-headline relative flex flex-col items-center justify-center ${isRTL ? 'rtl' : 'ltr'}`}>  
+  
+      <!-- Main Title -->
+      <h2 id="services-title" class={`relative z-10 services-title font-bold tracking-tight ${lang === 'ar' ? 'font-arabic' : 'font-archivo'} animate-title-slide-up`} style="animation-delay: 0.2s;">
+        <span class="block text-xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-slate-800 mb-2">
+          {sectionTitle[lang].line1}
+        </span>
+      </h2>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="services-grid" role="list">
+      {services.map((service) => (
+        <div 
+          class="service-card"
+          role="listitem"
+          tabindex="0"
+          aria-label={service.title[lang]}
+        >
+          <div class="card-content">
+            <div class="card-icon">
+              <div set:html={service.icon}></div>
+            </div>
+            <h3 class={`card-title ${lang === 'ar' ? 'font-arabic' : 'font-archivo'}`}>{service.title[lang]}</h3>
+            <p class={`card-description ${lang === 'ar' ? 'font-arabic' : 'font-archivo'}`}>{service.description[lang]}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services-section {
+    position: relative;
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #ecfdf5 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  .services-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+  }
+  .services-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .services-title {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 800;
+    background: linear-gradient(135deg, #047C46 0%, #07D580 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .services-intro {
+    font-size: 1.25rem;
+    color: #047C46;
+    margin-bottom: 2rem;
+    opacity: 0.85;
+  }
+  .services-divider {
+    width: 8rem;
+    height: 0.25rem;
+    background: linear-gradient(to right, #07D580, #047C46);
+    margin: 2rem auto 0 auto;
+    border-radius: 9999px;
+    position: relative;
+    overflow: hidden;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  .service-card {
+    background: white;
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 32px -8px rgba(7, 213, 128, 0.10), 0 1.5px 6px -2px rgba(4, 124, 70, 0.08);
+    border: 2px solid #07D58022;
+    transition: box-shadow 0.3s, transform 0.3s, border 0.3s;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    min-height: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 0;
+  }
+  .service-card:focus-visible {
+    border: 2.5px solid #07D580;
+    box-shadow: 0 0 0 4px #07D58033;
+  }
+  .service-card:hover {
+    box-shadow: 0 16px 40px -8px #07D58033, 0 2px 8px -2px #047C4633;
+    transform: translateY(-6px) scale(1.025);
+    border: 2.5px solid #07D580;
+  }
+  .card-content {
+    padding: 1.25rem 0.75rem 1rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    text-align: center;
+  }
+  .card-icon {
+    width: 4.5rem;
+    height: 4.5rem;
+    background: linear-gradient(135deg, #07D580 60%, #047C46 100%);
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 16px -4px #07D58033;
+    color: white;
+    font-size: 2.25rem;
+    transition: transform 0.3s;
+  }
+  .service-card:hover .card-icon {
+    transform: scale(1.08) rotate(3deg);
+  }
+  .card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #047C46;
+    margin-bottom: 0.25rem;
+    letter-spacing: 0.01em;
+  }
+  .card-description {
+    font-size: 0.95rem;
+    color: #333;
+    opacity: 0.85;
+    line-height: 1.6;
+    max-width: 95%;
+    margin: 0 auto;
+  }
+  @media (min-width: 1200px) {
+    .services-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  @media (max-width: 900px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    .card-content {
+      padding: 1rem 0.5rem 0.75rem 0.5rem;
+    }
+  }
+  @media (max-width: 600px) {
+    .services-section {
+      padding: 1.5rem 0;
+    }
+    .services-header {
+      margin-bottom: 1.25rem;
+    }
+    .services-title {
+      font-size: 1.25rem;
+    }
+    .services-intro {
+      font-size: 0.95rem;
+    }
+    .services-grid {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+    .card-content {
+      padding: 0.75rem 0.25rem 0.5rem 0.25rem;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .service-card,
+    .services-header,
+    .services-title,
+    .card-icon {
+      transition: none;
+    }
+    .service-card:hover,
+    .service-card:focus-visible {
+      transform: none;
+      box-shadow: 0 8px 32px -8px rgba(7, 213, 128, 0.10);
+    }
+  }
+
+  /* Add About Us headline styles and animation classes */
+  .services-header.aboutus-headline {
+    min-height: 12rem;
+    margin-bottom: 2rem;
+    position: relative;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .services-bg-text {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 0;
+    user-select: none;
+    pointer-events: none;
+  }
+  @media (max-width: 640px) {
+    .services-bg-text {
+      font-size: 2.5rem;
+    }
+  }
+
+  /* Fit screen styles */
+  .fit-screen {
+    min-height: 100vh;
+    max-height: 100vh;
+    padding: 2rem 0 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: hidden;
+  }
+  .fit-screen-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .services-header.aboutus-headline {
+    min-height: unset;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+  }
+  .fit-screen-grid {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    max-height: calc(100vh - 12rem);
+    /* 12rem is an estimate for header height, adjust as needed */
+  }
+  @media (max-width: 900px) {
+    .fit-screen {
+      min-height: 100vh;
+      max-height: none;
+      padding: 1rem 0 0 0;
+    }
+    .fit-screen-grid {
+      max-height: none;
+      overflow-y: visible;
+    }
+  }
+  @media (max-width: 600px) {
+    .fit-screen {
+      padding: 0.5rem 0 0 0;
+    }
+  }
+</style> 

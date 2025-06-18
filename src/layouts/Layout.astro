@@ -129,99 +129,62 @@ const isRTL = lang === 'ar';
     </main>
     
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white">
-      <div class="container-custom section-padding">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <!-- Company Info -->
-          <div class="lg:col-span-2">
-            <div class="mb-6">
-              <Logo 
-                variant="white"
-                size="md"
-                showText={true}
-                lang={lang}
-                className="mb-6"
-              />
-            </div>
-            <p class="text-gray-300 mb-6 max-w-md">
-              {lang === 'ar' 
-                ? 'الشركة العربية المعتمدة لإدارة المرافق - نقدم حلول مبتكرة وموثوقة لإدارة وصيانة المرافق في المملكة العربية السعودية.'
-                : 'The Accredited Arabian Company for Facilities Management - Delivering innovative and reliable facilities management solutions in Saudi Arabia.'
-              }
-            </p>
-            <div class="flex space-x-4 rtl:space-x-reverse">
-              <a href="mailto:info@arcom.sa" class="text-primary-400 hover:text-primary-300 transition-colors">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-                </svg>
+    <footer id="contact" class="relative min-h-screen flex flex-col justify-end bg-[#F5FCF8] text-[#047C46]">
+      <div class="container-custom py-10 md:py-12 flex-1 flex flex-col justify-center z-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+          <!-- Brand & Vision -->
+          <div class="flex flex-col gap-6 items-center lg:items-start">
+            <Logo variant="green" size="lg" showText={false} lang={lang} className="mb-2" />
+            <div class="flex gap-3 mt-2">
+              <a href="https://www.linkedin.com/company/arcomarcom" aria-label="LinkedIn" class="rounded-full bg-[#07D580]/10 hover:bg-[#07D580]/20 p-2 transition-colors" target="_blank" rel="noopener">
+                <svg class="w-6 h-6 text-[#07D580]" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.29c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm15.5 10.29h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.89v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v4.72z"/></svg>
               </a>
-              <a href="https://www.arcom.sa" class="text-primary-400 hover:text-primary-300 transition-colors">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M4.083 9h1.946c.089-1.546.383-2.97.837-4.118A6.004 6.004 0 004.083 9zM10 2a8 8 0 100 16 8 8 0 000-16zm0 2c-.076 0-.232.032-.465.262-.238.234-.497.623-.737 1.182-.389.907-.673 2.142-.766 3.556h3.936c-.093-1.414-.377-2.649-.766-3.556-.24-.559-.499-.948-.737-1.182C10.232 4.032 10.076 4 10 4zm3.971 5c-.089-1.546-.383-2.97-.837-4.118A6.004 6.004 0 0115.917 9h-1.946zm-2.003 2H8.032c.093 1.414.377 2.649.766 3.556.24.559.499.948.737 1.182.233.23.389.262.465.262.076 0 .232-.032.465-.262.238-.234.497-.623.737-1.182.389-.907.673-2.142.766-3.556zm1.166 4.118c.454-1.147.748-2.572.837-4.118h1.946a6.004 6.004 0 01-2.783 4.118zm-6.268 0C6.412 13.97 6.118 12.546 6.03 11H4.083a6.004 6.004 0 002.783 4.118z" clip-rule="evenodd"></path>
-                </svg>
+              <a href="https://twitter.com/arcomarcom" aria-label="Twitter" class="rounded-full bg-[#07D580]/10 hover:bg-[#07D580]/20 p-2 transition-colors" target="_blank" rel="noopener">
+                <svg class="w-6 h-6 text-[#07D580]" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557a9.93 9.93 0 01-2.828.775 4.932 4.932 0 002.165-2.724c-.951.564-2.005.974-3.127 1.195a4.916 4.916 0 00-8.38 4.482c-4.083-.205-7.697-2.162-10.125-5.138a4.822 4.822 0 00-.664 2.475c0 1.708.87 3.216 2.188 4.099a4.904 4.904 0 01-2.229-.616c-.054 2.281 1.581 4.415 3.949 4.89a4.936 4.936 0 01-2.224.084c.627 1.956 2.444 3.377 4.6 3.417A9.867 9.867 0 010 21.543a13.94 13.94 0 007.548 2.212c9.057 0 14.009-7.496 14.009-13.986 0-.213-.005-.425-.014-.636A9.936 9.936 0 0024 4.557z"/></svg>
+              </a>
+              <a href="mailto:info@arcom.sa" aria-label="Email" class="rounded-full bg-[#07D580]/10 hover:bg-[#07D580]/20 p-2 transition-colors">
+                <svg class="w-6 h-6 text-[#07D580]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
               </a>
             </div>
           </div>
-          
           <!-- Quick Links -->
-          <div>
-            <h3 class="text-lg font-semibold mb-6">
-              {lang === 'ar' ? 'روابط سريعة' : 'Quick Links'}
-            </h3>
-            <ul class="space-y-3">
-              <li><a href="#about" class="text-gray-300 hover:text-primary-400 transition-colors">{lang === 'ar' ? 'من نحن' : 'About'}</a></li>
-              <li><a href="#services" class="text-gray-300 hover:text-primary-400 transition-colors">{lang === 'ar' ? 'الخدمات' : 'Services'}</a></li>
-              <li><a href="#contact" class="text-gray-300 hover:text-primary-400 transition-colors">{lang === 'ar' ? 'اتصل بنا' : 'Contact'}</a></li>
-            </ul>
-          </div>
-          
+          <nav aria-label={lang === 'ar' ? 'روابط سريعة' : 'Quick Links'} class="flex flex-col gap-3">
+            <h3 class="text-lg font-bold mb-2 text-[#047C46]">{lang === 'ar' ? 'روابط سريعة' : 'Quick Links'}</h3>
+            <a href={`/${lang}/#about`} class="hover:text-[#07D580] transition-colors">{lang === 'ar' ? 'من نحن' : 'About'}</a>
+            <a href={`/${lang}/#services`} class="hover:text-[#07D580] transition-colors">{lang === 'ar' ? 'الخدمات' : 'Services'}</a>
+            <a href={`/${lang}/#partners`} class="hover:text-[#07D580] transition-colors">{lang === 'ar' ? 'الشركاء' : 'Partners'}</a>
+            <a href={`/${lang}/#contact`} class="hover:text-[#07D580] transition-colors">{lang === 'ar' ? 'اتصل بنا' : 'Contact'}</a>
+          </nav>
           <!-- Contact Info -->
-          <div>
-            <h3 class="text-lg font-semibold mb-6">
-              {lang === 'ar' ? 'معلومات التواصل' : 'Contact Info'}
-            </h3>
-            <ul class="space-y-3 text-gray-300">
-              <li class="flex items-center space-x-3 rtl:space-x-reverse">
-                <svg class="w-5 h-5 text-primary-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-                </svg>
-                <span class="ltr-content">info@arcom.sa</span>
-              </li>
-              <li class="flex items-center space-x-3 rtl:space-x-reverse">
-                <svg class="w-5 h-5 text-primary-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
-                </svg>
-                <span>{lang === 'ar' ? 'الرياض، المملكة العربية السعودية' : 'Riyadh, Saudi Arabia'}</span>
-              </li>
-              <li class="flex items-center space-x-3 rtl:space-x-reverse">
-                <svg class="w-5 h-5 text-primary-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M4.083 9h1.946c.089-1.546.383-2.97.837-4.118A6.004 6.004 0 004.083 9zM10 2a8 8 0 100 16 8 8 0 000-16zm0 2c-.076 0-.232.032-.465.262-.238.234-.497.623-.737 1.182-.389.907-.673 2.142-.766 3.556h3.936c-.093-1.414-.377-2.649-.766-3.556-.24-.559-.499-.948-.737-1.182C10.232 4.032 10.076 4 10 4zm3.971 5c-.089-1.546-.383-2.97-.837-4.118A6.004 6.004 0 0115.917 9h-1.946zm-2.003 2H8.032c.093 1.414.377 2.649.766 3.556.24.559.499.948.737 1.182.233.23.389.262.465.262.076 0 .232-.032.465-.262.238-.234.497-.623.737-1.182.389-.907.673-2.142.766-3.556zm1.166 4.118c.454-1.147.748-2.572.837-4.118h1.946a6.004 6.004 0 01-2.783 4.118zm-6.268 0C6.412 13.97 6.118 12.546 6.03 11H4.083a6.004 6.004 0 002.783 4.118z" clip-rule="evenodd"></path>
-                </svg>
-                <span class="ltr-content">www.arcom.sa</span>
-              </li>
-            </ul>
-          </div>
+          <address class="not-italic flex flex-col gap-3 text-neutral-700">
+            <h3 class="text-lg font-bold mb-2 text-[#047C46]">{lang === 'ar' ? 'معلومات التواصل' : 'Contact Info'}</h3>
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-[#07D580]" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+              <a href="mailto:info@arcom.sa" class="hover:text-[#07D580] transition-colors">info@arcom.sa</a>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-[#07D580]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+              <span>{lang === 'ar' ? 'الرياض، المملكة العربية السعودية' : 'Riyadh, Saudi Arabia'}</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-[#07D580]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.083 9h1.946c.089-1.546.383-2.97.837-4.118A6.004 6.004 0 004.083 9zM10 2a8 8 0 100 16 8 8 0 000-16zm0 2c-.076 0-.232.032-.465.262-.238.234-.497.623-.737 1.182-.389.907-.673 2.142-.766 3.556h3.936c-.093-1.414-.377-2.649-.766-3.556-.24-.559-.499-.948-.737-1.182C10.232 4.032 10.076 4 10 4zm3.971 5c-.089-1.546-.383-2.97-.837-4.118A6.004 6.004 0 0115.917 9h-1.946zm-2.003 2H8.032c.093 1.414.377 2.649.766 3.556.24.559.499.948.737 1.182.233.23.389.262.465.262.076 0 .232-.032.465-.262.238-.234.497-.623.737-1.182.389-.907.673-2.142.766-3.556zm1.166 4.118c.454-1.147.748-2.572.837-4.118h1.946a6.004 6.004 0 01-2.783 4.118zm-6.268 0C6.412 13.97 6.118 12.546 6.03 11H4.083a6.004 6.004 0 002.783 4.118z" clip-rule="evenodd"/></svg>
+              <a href="https://www.arcom.sa" class="hover:text-[#07D580] transition-colors" target="_blank" rel="noopener">www.arcom.sa</a>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-[#07D580]" fill="currentColor" viewBox="0 0 20 20"><path d="M3 8h14M3 12h14"/></svg>
+              <span>{lang === 'ar' ? 'الأحد - الخميس: 8:00 ص - 6:00 م' : 'Sun - Thu: 8:00 AM - 6:00 PM'}</span>
+            </div>
+          </address>
         </div>
-        
-        <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p class="text-gray-400 text-sm">
-            {lang === 'ar' 
-              ? `© ${new Date().getFullYear()} أركوم. جميع الحقوق محفوظة.`
-              : `© ${new Date().getFullYear()} Arcom. All rights reserved.`
-            }
-          </p>
-          <div class="flex items-center space-x-4 rtl:space-x-reverse mt-4 md:mt-0">
-            <span class="text-gray-400 text-sm">
-              {lang === 'ar' ? 'صنع بـ' : 'Made with'}
-            </span>
-            <span class="text-red-400">♥</span>
-            <span class="text-gray-400 text-sm">
-              {lang === 'ar' ? 'في المملكة العربية السعودية' : 'in Saudi Arabia'}
-            </span>
-          </div>
-        </div>
+      </div>
+      <!-- Bottom Bar -->
+      <div class="w-full border-t border-neutral-200 bg-white/80 py-4 px-4 flex flex-col md:flex-row justify-between items-center gap-2 text-sm z-20">
+        <span class="text-neutral-500">© {new Date().getFullYear()} Arcom. {lang === 'ar' ? 'جميع الحقوق محفوظة.' : 'All rights reserved.'}</span>
+        <span class="flex items-center gap-1 text-neutral-500">
+          {lang === 'ar' ? 'صنع بـ' : 'Made with'}
+          <span class="text-[#07D580]">♥</span>
+          {lang === 'ar' ? 'في المملكة العربية السعودية' : 'in Saudi Arabia'}
+        </span>
       </div>
     </footer>
     

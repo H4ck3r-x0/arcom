@@ -40,7 +40,7 @@ const t = useTranslations(lang)
       <div class="hidden lg:flex items-center">
         <nav class="flex items-center space-x-1 rtl:space-x-reverse" role="menubar">
           <a 
-            href={`/${lang}/`} 
+            href={`/${lang}/#hero`} 
             class="nav-link-premium" 
             role="menuitem"
             data-nav="home"
@@ -64,6 +64,15 @@ const t = useTranslations(lang)
             data-nav="services"
           >
             <span class="nav-text">{t('nav.services')}</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a 
+            href={`/${lang}/#partners`} 
+            class="nav-link-premium" 
+            role="menuitem"
+            data-nav="partners"
+          >
+            <span class="nav-text">{t('nav.partners')}</span>
             <div class="nav-indicator"></div>
           </a>
           <a 
@@ -156,59 +165,46 @@ document.addEventListener('DOMContentLoaded', function() {
     text-decoration: none;
     padding: 1rem 1.5rem;
     border-radius: 1rem;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    overflow: hidden;
+    background: transparent;
+    transition: color 0.3s, background 0.3s;
   }
   
-  .nav-link-premium:hover {
-    background: rgba(7, 213, 128, 0.08); /* Mint Green with opacity */
-    color: #047C46; /* Deep Green */
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(4, 124, 70, 0.15); /* Deep Green shadow */
+  .nav-link-premium:hover,
+  .nav-link-premium:focus-visible {
+    color: #07D580;
+    background: rgba(7, 213, 128, 0.05);
   }
   
-  .nav-link-premium:hover .nav-indicator {
-    width: 80%;
-    background: linear-gradient(90deg, #07D580, #71F5E6); /* Mint Green to Aqua Mint */
+  .nav-link-premium .nav-indicator {
+    position: absolute;
+    left: 50%;
+    bottom: 0.7rem;
+    width: 0;
+    height: 2px;
+    background: #07D580;
+    border-radius: 2px;
+    transition: width 0.3s cubic-bezier(0.4,0,0.2,1), left 0.3s cubic-bezier(0.4,0,0.2,1);
+    transform: translateX(-50%);
   }
   
-  .nav-link-premium:active {
-    transform: translateY(0);
-    transition-duration: 0.1s;
+  .nav-link-premium:hover .nav-indicator,
+  .nav-link-premium:focus-visible .nav-indicator {
+    width: 70%;
   }
   
   .nav-link-premium.active {
     color: #047C46;
   }
   
-  .nav-text {
-    position: relative;
-    z-index: 2;
-  }
-  
-  .nav-indicator {
-    position: absolute;
-    bottom: 0.5rem;
-    left: 50%;
-    width: 0;
-    height: 3px;
-    background: linear-gradient(90deg, #07D580, #047C46);
-    border-radius: 3px;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    transform: translateX(-50%);
-  }
-  
   .nav-link-premium.active .nav-indicator {
     width: 60%;
+    background: #047C46;
   }
   
-
-  
-  /* Enhanced Focus States */
   .nav-link-premium:focus-visible {
     outline: 2px solid #07D580;
     outline-offset: 2px;
-    box-shadow: 0 0 0 4px rgba(7, 213, 128, 0.2);
+    box-shadow: 0 0 0 4px rgba(7, 213, 128, 0.15);
   }
   
   /* RTL Enhancements */

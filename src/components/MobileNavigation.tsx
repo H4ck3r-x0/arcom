@@ -141,10 +141,10 @@ export default function MobileNavigation({ lang }: MobileNavigationProps) {
       ),
     },
     {
-      href: `/${lang}/#contact`,
-      label: t("nav.contact"),
-      description: lang === "ar" ? "تواصل معنا" : "Get in touch",
-      gradient: "from-[#71AFF5] to-[#71D9F5]",
+      href: `/${lang}/#partners`,
+      label: t("nav.partners"),
+      description: lang === "ar" ? "شركاء النجاح" : "Our partners",
+      gradient: "from-[#07D580] to-[#71D9F5]",
       icon: (
         <svg
           className="w-7 h-7"
